@@ -1,6 +1,6 @@
 # Work Log
 
-## Nelli 
+## Nelli
 
 ### 5/23
 Started Inventory, Map, Player, and Room classes on java files
@@ -12,9 +12,9 @@ info
 
 ## Jo
 
-### date x
+### 5/23
 
-info
+Started creating the skeletons for block class and its children in Processing
 
 ### date y
 
