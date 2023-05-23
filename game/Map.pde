@@ -1,4 +1,4 @@
-public class Map{
+class Map{
   private PriorityQueue<Room> timeline;
   //private String name; opt if multiple maps
 

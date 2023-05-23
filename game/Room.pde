@@ -1,11 +1,24 @@
-public class Room{
-  private int decisionValue;
+class Room{
+  private int dV;
   private String name;
-  //private Block[][] blockGrid;
+  private PImage background;
+  private Block[][] blockGrid;
 
   public Room(int decisionValue, String name){
-    this.decisionValue = decisionValue;
+    dV = decisionValue;
     this.name = name;
-    //blockGrid = new Block[10][10];
+    blockGrid = new Block[10][10];
+  }
+  
+  public int getdV(){
+    return dV;
+  }
+  public String getName(){
+    return name;
+  }
+  public void drawRoom(){
+    fill(0);
+    textSize(55);
+    text(getName(), 20, 50);
   }
 }
