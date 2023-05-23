@@ -1,7 +1,4 @@
 public class Room{
-<<<<<<< HEAD
-
-=======
   private int decisionValue;
   private String name;
   //private Block[][] blockGrid;
@@ -11,5 +8,4 @@ public class Room{
     this.name = name;
     //blockGrid = new Block[10][10];
   }
->>>>>>> nelli
 }
