@@ -1,17 +1,16 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Nelli 
 
-### date x
-
-info
+### 5/23
+Started Inventory, Map, Player, and Room classes on java files
 
 ### date y
 
 info
 
 
-## GROUP MEMBER 2
+## Jo
 
 ### date x
 
