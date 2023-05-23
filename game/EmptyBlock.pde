@@ -1,0 +1,3 @@
+class EmptyBlock extends Block{
+
+}
