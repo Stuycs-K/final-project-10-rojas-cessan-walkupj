@@ -1,5 +1,5 @@
 class WaterBlock extends Block{
-  private PImage image;
+  private PImage image = loadImage("waterBlock.png");
   public void drown(){
     
   }

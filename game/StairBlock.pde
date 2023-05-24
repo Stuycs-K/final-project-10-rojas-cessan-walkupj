@@ -1,5 +1,5 @@
 class StairBlock extends Block{
-  private PImage image;
+  private PImage image = loadImage("stairBlock.jpg");
   private int space;
   public void use(){
 

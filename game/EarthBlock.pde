@@ -1,3 +1,3 @@
 class EarthBlock extends Block{
-  private PImage image;
+  private PImage image = loadImage("earthBlock.jpg");
 }
