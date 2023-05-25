@@ -1,5 +1,5 @@
 class DoorBlock extends Block{
-  private PImage image;
+  //private PImage image = loadImage("doorBlock.jpg");
   public void teleport(){
   }
 }

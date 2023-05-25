@@ -16,6 +16,6 @@ info
 
 Started creating the skeletons for block class and its children in Processing
 
-### date y
+### 5/24
 
-info
+Added images for all the image blocks
