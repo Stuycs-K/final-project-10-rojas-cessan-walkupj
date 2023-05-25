@@ -2,7 +2,7 @@ class Room{
   private int dV;
   private String name;
   private Block[][] blockGrid;
-  //private PImage background = loadImage("bridgeBlock.jpg");
+  private PImage background = loadImage("fortniteBackground.jpeg");
 
   public Room(int decisionValue, String name){
     dV = decisionValue;
@@ -20,5 +20,7 @@ class Room{
     fill(0);
     textSize(55);
     text(getName(), 20, 50);
+    background.resize(1000, 600);
+    image(background, 0, 0);
   }
 }

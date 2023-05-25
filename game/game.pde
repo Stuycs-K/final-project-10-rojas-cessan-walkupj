@@ -5,7 +5,7 @@ private Player player;
 private int MODE; 
 private static final int WALK = 0;
 private static final int BUILD = 1;
-private static final int INVENTORY = 2;
+private static final int INVENTORY;
 Controller keyboardInput;
 
 void keyPressed() {
@@ -44,21 +44,7 @@ void draw(){
 }
 
 public void drawSetting(){
-  background(255); 
-  line(100,0,100, 500); //each block is 100
-  line(200,0,200, 500);
-  line(300,0,300, 500);
-  line(400,0,400, 500);
-  line(500,0,500, 500);
-  line(600,0,600, 500);
-  line(700,0,700, 500);
-  line(800,0,800, 500);
-  line(900,0,900, 500);
-  line(0,100,1000, 100);
-  line(0,200,1000, 200);
-  line(0,300,1000, 300);
-  line(0,400,1000, 400);
-  line(0,500,1000, 500);
+  background(255); //each block is 100
   currentRoom.drawRoom();
   player.drawPlayer();
   inventory.drawInventory();
