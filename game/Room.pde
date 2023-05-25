@@ -1,8 +1,8 @@
 class Room{
   private int dV;
   private String name;
-  private PImage background;
   private Block[][] blockGrid;
+  //private PImage background = loadImage("bridgeBlock.jpg");
 
   public Room(int decisionValue, String name){
     dV = decisionValue;
