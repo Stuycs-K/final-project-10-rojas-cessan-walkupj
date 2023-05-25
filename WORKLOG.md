@@ -19,3 +19,7 @@ Started creating the skeletons for block class and its children in Processing
 ### 5/24
 
 Added images for all the image blocks
+
+### 5/25
+
+put images in a folder so Nelli can access them
