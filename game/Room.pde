@@ -2,7 +2,7 @@ class Room{
   private int dV;
   private String name;
   private Block[][] blockGrid;
-  //private PImage background = loadImage("bridgeBlock.jpg");
+  private PImage background = loadImage("blockImages/bridgeBlock.jpg");
 
   public Room(int decisionValue, String name){
     dV = decisionValue;
