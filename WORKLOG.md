@@ -5,9 +5,9 @@
 ### 5/23
 Started Inventory, Map, Player, and Room classes on java files
 
-### date y
+### 5/24
 
-info
+Established main game interface, walk mode (left and right), and setting in draw
 
 
 ## Jo
