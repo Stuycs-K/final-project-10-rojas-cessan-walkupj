@@ -5,7 +5,8 @@ private Player player;
 private int MODE; 
 private static final int WALK = 0;
 private static final int BUILD = 1;
-private static final int INVENTORY;
+private static final int INVENTORY = 2;
+private static final int MAP = 3;
 Controller keyboardInput;
 
 void keyPressed() {

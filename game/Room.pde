@@ -16,11 +16,21 @@ class Room{
   public String getName(){
     return name;
   }
+  public void drawBlockGrid(){
+    for (int r = 0; r < width; r += 100){
+      for (int c = 0; c < height; c += 100){
+        square(r, c, 10); //placeholder
+        //drawblock(r, c);
+      }
+    }
+  }
   public void drawRoom(){
     fill(0);
-    textSize(55);
-    text(getName(), 20, 50);
     background.resize(1000, 600);
     image(background, 0, 0);
+    drawBlockGrid();
+    
+    textSize(55);
+    text(getName(), 20, 50);
   }
 }
