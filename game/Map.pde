@@ -7,4 +7,5 @@ class Map{
    }
    public void drawMap(){
    }
+   
 }
