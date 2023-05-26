@@ -1,3 +1,3 @@
 class BridgeBlock extends Block{
-  //private PImage image = loadImage("bridgeBlock.jpg");
+  private PImage image = loadImage("blockImages/bridgeBlock.jpg");
 }

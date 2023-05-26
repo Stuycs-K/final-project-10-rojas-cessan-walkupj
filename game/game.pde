@@ -32,9 +32,11 @@ void draw(){
   drawSetting();
   if (MODE == WALK){
     if (keyboardInput.isPressed(Controller.P1_LEFT)) {
+      player.left = true;
       player.walkLeft();
     }
     if (keyboardInput.isPressed(Controller.P1_RIGHT)) {
+      player.left = false;
       player.walkRight();
     }
   }
