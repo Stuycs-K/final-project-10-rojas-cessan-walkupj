@@ -11,8 +11,7 @@ class Player{
   //150 tall, 100 across
   public Player(){
      name = "Sonny";
-     health = 3;
-     location = new int[]{0,150};
+     location = new int[]{0,225};
   }
   
   public void drawPlayer(){ //placeholder for image

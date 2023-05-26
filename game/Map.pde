@@ -5,4 +5,6 @@ class Map{
    public Map(){
      timeline = new PriorityQueue<Room>();
    }
+   public void drawMap(){
+   }
 }
