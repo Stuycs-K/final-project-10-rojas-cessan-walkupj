@@ -7,4 +7,8 @@ class StairBlock extends Block{
   public void destroy(){
 
   }
+  public void drawBlock(int x, int y){
+    image.resize(100, 100); 
+    image(image, x, y);
+  }
 }

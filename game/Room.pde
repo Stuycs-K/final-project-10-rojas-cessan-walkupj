@@ -18,12 +18,17 @@ class Room{
     return name;
   }
   public void drawBlockGrid(){
-    for (int r = 0; r < width; r += 100){
-      for (int c = 0; c < height; c += 100){
-        square(r, c, 10); //placeholder
-        //drawblock(r, c);
+    for (int r = 0; r < 10; r ++){
+      for (int c = 0; c < 6; c ++){
+        //square(r, c, 10); //placeholder
+        if(blockGrid[r][c] != null){
+          blockGrid[r][c].drawBlock(r*100, c*100);
+        }
       }
     }
+  }
+  public void addBlock(Block block, int r, int c){
+    blockGrid[r][c] = block;
   }
   public void drawRoom(){
     fill(0);

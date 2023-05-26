@@ -22,6 +22,10 @@ void setup(){
   MODE = 0;
   size(1000, 650);
   currentRoom = new Room(0, "Tutorial");
+  Block a = new EarthBlock();
+  Block b = new MonsterBlock();
+  currentRoom.addBlock(a, 3, 4);
+  currentRoom.addBlock(b, 4, 4);
   inventory = new Inventory();
   player = new Player();
   keyboardInput = new Controller();

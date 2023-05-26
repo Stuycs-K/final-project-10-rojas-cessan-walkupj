@@ -1,3 +1,3 @@
-class EmptyBlock extends Block{
+class EmptyBlock {//extends Block{
 
 }
