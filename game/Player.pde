@@ -3,9 +3,12 @@ class Player{
   private PImage leftImage = loadImage("blockImages/playerLeft.png");
   private PImage rightImage = loadImage("blockImages/playerRight.png");
   private int health;
+  private int pheight = 150;
+  private int pwidth = 75;
   private boolean left;
   private int[] location;
   //private Inventory inventory;
+  //150 tall, 100 across
   public Player(){
      name = "Sonny";
      health = 3;
@@ -13,8 +16,14 @@ class Player{
   }
   
   public void drawPlayer(){ //placeholder for image
-    if(left) image(leftImage, location[0], location[1]);
-    else image(rightImage, location[0], location[1]);
+    if(left){
+      leftImage.resize(pwidth, pheight);
+      image(leftImage, location[0], location[1]);
+    }
+    else{
+      rightImage.resize(pwidth, pheight);
+      image(rightImage, location[0], location[1]);
+    }
   }
   
   //public void drawPlayerLeft(){ //placeholder for image

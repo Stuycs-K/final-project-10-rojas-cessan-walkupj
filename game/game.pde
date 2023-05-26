@@ -64,5 +64,4 @@ public void drawSetting(){
   currentRoom.drawRoom();
   player.drawPlayer();
   inventory.drawInventory();
-
 }
