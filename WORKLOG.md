@@ -9,6 +9,10 @@ Started Inventory, Map, Player, and Room classes on java files
 
 Established main game interface, walk mode (left and right), and setting in draw
 
+### 5/25
+
+Drawing blocks in a room and loading background images
+
 
 ## Jo
 
