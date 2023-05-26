@@ -39,6 +39,12 @@ void draw(){
       player.left = false;
       player.walkRight();
     }
+    if (keyboardInput.isPressed(Controller.P1_UP)) {
+      player.walkUp();
+    }
+    if (keyboardInput.isPressed(Controller.P1_DOWN)) {
+      player.walkDown();
+    }
   }
 
   fill(0);

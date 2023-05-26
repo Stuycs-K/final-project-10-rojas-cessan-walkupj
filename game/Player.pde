@@ -51,5 +51,25 @@ class Player{
     }
       location[0] += 5;  
   }
+  
+  public void walkUp(){
+    if (location[1] < 0){
+      location[1] = 0;
+    }
+    if (location[1] > width-50){
+      location[1] = width-50;
+    }
+    location[1] -= 5;  
+  }
+  
+  public void walkDown(){
+    if (location[1] < 0){
+      location[1] = 0;
+    }
+    if (location[1] > width-50){
+      location[1] = width-50;
+    }
+    location[1] += 5;  
+  }
 
 }

@@ -22,4 +22,9 @@ Added images for all the image blocks
 
 ### 5/25
 
-put images in a folder so Nelli can access them
+Put images in a folder so Nelli can access them
+Made Sonny walk (turns left and right) and also updated paths for images
+
+### 5/26
+
+Made Sonny move in all 4 directions
