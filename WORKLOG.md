@@ -28,3 +28,8 @@ Made Sonny walk (turns left and right) and also updated paths for images
 ### 5/26
 
 Made Sonny move in all 4 directions
+Added constructors to all block classes and made a ground floor for Sonny
+
+### 5/29
+
+Added add and remove methods to inventory class and tested

@@ -3,6 +3,9 @@ class MonsterBlock extends Block{
   public void attack(){
     
   }
+  public MonsterBlock(){
+    this.image = image;
+  }
   public void drawBlock(int x, int y){
     image.resize(100, 100); 
     image(image, x, y);

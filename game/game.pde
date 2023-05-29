@@ -22,11 +22,11 @@ void setup(){
   MODE = 0;
   size(1000, 650);
   currentRoom = new Room(0, "Tutorial");
-  Block a = new EarthBlock();
-  Block b = new MonsterBlock();
-  currentRoom.addBlock(a, 3, 4);
-  currentRoom.addBlock(b, 4, 4);
+  for(int i = 0; i < width / 100; i++){
+    currentRoom.addBlock(new EarthBlock(), i, 4);
+  }
   inventory = new Inventory();
+  inventory.addToInventory(new BridgeBlock(), 0);
   player = new Player();
   keyboardInput = new Controller();
   drawSetting();
@@ -50,10 +50,8 @@ void draw(){
       player.walkDown();
     }
   }
-
   fill(0);
   text("Try pressing one or more of: WASD keys", 10, 70);
-
 }
 
 public void drawSetting(){
