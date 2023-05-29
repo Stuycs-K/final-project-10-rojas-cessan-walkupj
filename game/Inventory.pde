@@ -23,6 +23,10 @@ public class Inventory{
     inventory[i] = null;
   }
   
+  public Block get(int i){
+    return inventory[i];
+  }
+  
   public void drawInventoryContents(){
     for(int i = 0; i < inventory.length; i++){
       if(inventory[i] != null){

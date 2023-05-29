@@ -33,3 +33,5 @@ Added constructors to all block classes and made a ground floor for Sonny
 ### 5/29
 
 Added add and remove methods to inventory class and tested
+Added a drag and drop method to get blocks from inventory to room
+Added remove method to room to enable drag n drop both ways

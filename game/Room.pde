@@ -30,6 +30,9 @@ class Room{
   public void addBlock(Block block, int r, int c){
     blockGrid[r][c] = block;
   }
+  public void removeBlock(int r, int c){
+    blockGrid[r][c] = null;
+  }
   public void drawRoom(){
     fill(0);
     background.resize(1000, 600);

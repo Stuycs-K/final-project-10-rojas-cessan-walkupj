@@ -3,6 +3,9 @@ private Room currentRoom;
 private Inventory inventory;
 private Player player; 
 private int MODE; 
+private int inventoryFromMouse;
+private int roomRFromMouse;
+private int roomCFromMouse;
 private static final int WALK = 0;
 private static final int BUILD = 1;
 private static final int INVENTORY = 2;
@@ -30,6 +33,24 @@ void setup(){
   player = new Player();
   keyboardInput = new Controller();
   drawSetting();
+}
+
+void mousePressed(){
+  if(mouseX >= 500){
+    inventoryFromMouse = mouseX / 100;
+  }
+  else{
+    roomRFromMouse = mouseX / 100;
+    roomCFromMouse = mouseY / 100;
+  }
+}
+
+void mouseReleased(){
+  roomRFromMouse = mouseX / 100;
+  roomCFromMouse = mouseY / 100;
+  
+  currentRoom.addBlock(inventory.get(inventoryFromMouse), roomRFromMouse, roomCFromMouse);
+  inventory.removeFromInventory(inventoryFromMouse);
 }
 
 void draw(){
