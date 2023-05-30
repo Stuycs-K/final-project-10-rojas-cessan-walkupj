@@ -1,6 +1,13 @@
 class MonsterBlock extends Block{
-  private PImage image; //will be a gif
+  private PImage image = loadImage("blockImages/monsterBlock.gif"); //will be a gif
   public void attack(){
     
+  }
+  public MonsterBlock(){
+    this.image = image;
+  }
+  public void drawBlock(int x, int y){
+    image.resize(100, 100); 
+    image(image, x, y);
   }
 }
