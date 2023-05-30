@@ -79,10 +79,8 @@ class Player{
     location[1] += 10;  
   }
   
-  public void drop(){
-    for (int i = 0; i < 50; i++){
-      walkDown();
-    }
+  public void fall(){
+    walkDown();
   }
 
 }

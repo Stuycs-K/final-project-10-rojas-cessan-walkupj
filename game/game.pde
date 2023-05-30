@@ -9,7 +9,6 @@ private int initMouseY;
 private int initMouseX;
 private int roomRFromMouse;
 private int roomCFromMouse;
-private boolean isLayer;
 private static final int WALK = 0;
 private static final int BUILD = 1;
 private static final int INVENTORY = 2;
@@ -51,6 +50,8 @@ void mousePressed(){
     roomCFromMouse = mouseY / 100;
   }
 }
+
+// if(currentRoom.get(initMouseX / 100, initMouseY / 100).interactable == true)
 
 void mouseReleased(){
   if(initMouseY < 500 && mouseY >= 500){ // room to inv
@@ -94,6 +95,7 @@ void draw(){
      MODE = MAP;
    } 
   }
+  //currentRoom.getHorizon();
   if (MODE == MAP){
     map.drawMap();
   }
