@@ -5,7 +5,6 @@ class Room{
   private PImage background = loadImage("fortniteBackground.jpeg");
   private int roomNumber;
 
-
   public Room(int decisionValue, String name, int roomNumber){
     dV = decisionValue;
     this.name = name;
@@ -19,6 +18,11 @@ class Room{
   public String getName(){
     return name;
   }
+  
+  public boolean thereIsBlock (int x, int y){
+    return blockGrid[x][y] != null;
+  }
+  
   public void drawBlockGrid(){
     for (int r = 0; r < 10; r ++){
       for (int c = 0; c < 6; c ++){
@@ -31,6 +35,12 @@ class Room{
   }
   public void addBlock(Block block, int r, int c){
     blockGrid[r][c] = block;
+  }
+  public void removeBlock(int r, int c){
+    blockGrid[r][c] = null;
+  }
+  public Block get(int r, int c){
+    return blockGrid[r][c];
   }
   public void drawRoom(){
     fill(0);
