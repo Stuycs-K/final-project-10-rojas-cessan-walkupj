@@ -4,8 +4,11 @@ private Inventory inventory;
 private Player player; 
 private int MODE; 
 private int inventoryFromMouse;
+private int initMouseY;
+private int initMouseX;
 private int roomRFromMouse;
 private int roomCFromMouse;
+private boolean isLayer;
 private static final int WALK = 0;
 private static final int BUILD = 1;
 private static final int INVENTORY = 2;
@@ -36,7 +39,9 @@ void setup(){
 }
 
 void mousePressed(){
-  if(mouseX >= 500){
+  initMouseY = mouseY;
+  initMouseX = mouseX;
+  if(initMouseY >= 500){
     inventoryFromMouse = mouseX / 100;
   }
   else{
@@ -46,11 +51,23 @@ void mousePressed(){
 }
 
 void mouseReleased(){
-  roomRFromMouse = mouseX / 100;
-  roomCFromMouse = mouseY / 100;
-  
-  currentRoom.addBlock(inventory.get(inventoryFromMouse), roomRFromMouse, roomCFromMouse);
-  inventory.removeFromInventory(inventoryFromMouse);
+  if(initMouseY < 500 && mouseY >= 500){ // room to inv
+    inventoryFromMouse = mouseX / 100;
+    inventory.addToInventory(currentRoom.get(initMouseX / 100, initMouseY / 100), inventoryFromMouse);
+    currentRoom.removeBlock(initMouseX / 100, initMouseY / 100);
+  }
+  else if(initMouseY < 500 && mouseY < 500){ // room to room
+    roomRFromMouse = mouseX / 100;
+    roomCFromMouse = mouseY / 100;
+    currentRoom.addBlock(currentRoom.get(initMouseX / 100, initMouseY / 100), roomRFromMouse, roomCFromMouse);
+    currentRoom.removeBlock(initMouseX / 100, initMouseY / 100);
+  }
+  else if(initMouseY >= 500 && mouseY < 500){ // inv to room
+    roomRFromMouse = mouseX / 100;
+    roomCFromMouse = mouseY / 100;
+    currentRoom.addBlock(inventory.get(inventoryFromMouse), roomRFromMouse, roomCFromMouse);
+    inventory.removeFromInventory(inventoryFromMouse);
+  }
 }
 
 void draw(){

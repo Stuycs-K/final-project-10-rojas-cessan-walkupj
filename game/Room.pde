@@ -33,6 +33,9 @@ class Room{
   public void removeBlock(int r, int c){
     blockGrid[r][c] = null;
   }
+  public Block get(int r, int c){
+    return blockGrid[r][c];
+  }
   public void drawRoom(){
     fill(0);
     background.resize(1000, 600);
