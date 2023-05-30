@@ -11,9 +11,7 @@ private int roomRFromMouse;
 private int roomCFromMouse;
 private boolean isLayer;
 private static final int WALK = 0;
-private static final int BUILD = 1;
-private static final int INVENTORY = 2;
-private static final int MAP = 3;
+private static final int MAP = 1;
 Controller keyboardInput;
 
 void keyPressed() {
@@ -29,6 +27,9 @@ void setup(){
   MODE = 0;
   size(1000, 650);
   map = new Map();
+  map.add(new Room(0, 0);
+  map.add(new Room(0, 1);
+  map.add(new Room(0, 1);
   currentRoom = new Room(0, 0);
   for(int i = 0; i < width / 100; i++){
     currentRoom.addBlock(new EarthBlock(), i, 4);
@@ -72,6 +73,19 @@ void mouseReleased(){
   }
 }
 
+void mouseClicked(){
+  //map menu
+  if (MODE == MAP){
+        if (currentRoom.mouseWithinRoom(mouseX, mouseY) {
+        map.value0 = 255;
+        MODE = WALK;
+      } else {
+        map.value1 = 0;
+      }
+   }
+}
+
+
 void draw(){
   drawSetting();
   if (MODE == WALK){
@@ -91,6 +105,7 @@ void draw(){
     }
     //if player is at the end
    if (player.getX() > 900){
+     currentRoom.setValue(150);
      MODE = MAP;
    } 
   }
