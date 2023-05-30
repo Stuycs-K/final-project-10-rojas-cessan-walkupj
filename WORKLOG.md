@@ -21,6 +21,7 @@ Drawing blocks in a room finished and designed room0.
 
 Finished designing room0, room1, and room2. 
 Experiencing issues with player deaths.
+Designing Map mode
 
 ## Jo
 
