@@ -92,7 +92,6 @@ void draw(){
     }
   }
   fill(0);
-  text("Try pressing one or more of: WASD keys", 10, 70);
 }
 
 public void drawSetting(){
