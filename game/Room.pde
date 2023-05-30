@@ -5,9 +5,8 @@ class Room{
   private PImage background = loadImage("fortniteBackground.jpeg");
   private int roomNumber;
 
-  public Room(int decisionValue, String name, int roomNumber){
+  public Room(int decisionValue, int roomNumber){
     dV = decisionValue;
-    this.name = name;
     blockGrid = new Block[10][10];
     this.roomNumber = roomNumber;
   }
@@ -45,7 +44,13 @@ class Room{
   public void drawRoom(){
     fill(0);
     if (roomNumber == 0){
-      setupRoom0();            //change
+      setupRoom0();           
+    }
+    if (roomNumber == 1){
+      setupRoom0();           
+    }
+    if (roomNumber == 2){
+      setupRoom0();           
     }
     drawBlockGrid();
     

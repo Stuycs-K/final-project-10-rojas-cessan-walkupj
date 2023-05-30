@@ -1,4 +1,5 @@
 import java.util.*;
+private Map map;
 private Room currentRoom;
 private Inventory inventory;
 private Player player; 
@@ -27,7 +28,8 @@ void keyReleased() {
 void setup(){
   MODE = 0;
   size(1000, 650);
-  currentRoom = new Room(0, "Tutorial", 0);
+  map = new Map();
+  currentRoom = new Room(0, 0);
   for(int i = 0; i < width / 100; i++){
     currentRoom.addBlock(new EarthBlock(), i, 4);
   }
@@ -87,9 +89,13 @@ void draw(){
     if (keyboardInput.isPressed(Controller.P1_DOWN)) {
       player.walkDown();
     }
-    if (!currentRoom.thereIsBlock((int)(player.getX()/100),(int) (player.getY()/100))){
-      player.drop();
-    }
+    //if player is at the end
+   if (player.getX() > 900){
+     MODE = MAP;
+   } 
+  }
+  if (MODE == MAP){
+    map.drawMap();
   }
   fill(0);
 }
