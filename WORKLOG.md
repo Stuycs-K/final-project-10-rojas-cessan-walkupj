@@ -13,6 +13,14 @@ Established main game interface, walk mode (left and right), and setting in draw
 
 Drawing blocks in a room and loading background images
 
+### 5/26
+
+Drawing blocks in a room finished and designed room0.
+
+### 5/29
+
+Finished designing room0, room1, and room2. 
+Experiencing issues with player deaths.
 
 ## Jo
 
