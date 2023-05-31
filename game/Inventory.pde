@@ -23,7 +23,7 @@ public class Inventory{
     inventory[i] = null;
   }
   
-  public Block get(int i){
+  public Block getItem(int i){
     return inventory[i];
   }
   

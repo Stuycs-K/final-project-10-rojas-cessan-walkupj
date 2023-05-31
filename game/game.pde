@@ -41,6 +41,7 @@ void setup(){
   currentRoom = map.get(currentRoomNumber);
   for(int i = 0; i < width / 100; i++){
     currentRoom.addBlock(new EarthBlock(), i, 4);
+    println("in setup: " + currentRoom.getBlock(i, 4) + "i = " + i);
   }
   inventory = new Inventory();
   inventory.addToInventory(new BridgeBlock(), 0);
@@ -70,19 +71,19 @@ void mouseReleased(){
 
   if(initMouseY < 500 && mouseY >= 500){ // room to inv
     inventoryFromMouse = mouseX / 100;
-    inventory.addToInventory(currentRoom.get(initMouseX / 100, initMouseY / 100), inventoryFromMouse);
+    inventory.addToInventory(currentRoom.getBlock(initMouseX / 100, initMouseY / 100), inventoryFromMouse);
     currentRoom.removeBlock(initMouseX / 100, initMouseY / 100);
   }
   else if(initMouseY < 500 && mouseY < 500){ // room to room
     roomRFromMouse = mouseX / 100;
     roomCFromMouse = mouseY / 100;
-    currentRoom.addBlock(currentRoom.get(initMouseX / 100, initMouseY / 100), roomRFromMouse, roomCFromMouse);
+    currentRoom.addBlock(currentRoom.getBlock(initMouseX / 100, initMouseY / 100), roomRFromMouse, roomCFromMouse);
     currentRoom.removeBlock(initMouseX / 100, initMouseY / 100);
   }
   else if(initMouseY >= 500 && mouseY < 500){ // inv to room
     roomRFromMouse = mouseX / 100;
     roomCFromMouse = mouseY / 100;
-    currentRoom.addBlock(inventory.get(inventoryFromMouse), roomRFromMouse, roomCFromMouse);
+    currentRoom.addBlock(inventory.getItem(inventoryFromMouse), roomRFromMouse, roomCFromMouse);
     inventory.removeFromInventory(inventoryFromMouse);
   }
 }
@@ -112,7 +113,11 @@ void draw(){
      MODE = MAP;
    } 
   }
-  //currentRoom.getHorizon();
+  if(currentRoom.getBlock((player.getX() - 50)/100, (player.getY() - 100)/100) == null) player.fall();
+  println(currentRoom.getBlock((player.getX() - 75)/100, (player.getY() - 150)/100));
+  println("x = " + player.getX()/100);
+  println("y = " + player.getY()/100);
+  println(currentRoom.getBlock((player.getX() - 75)/100, (player.getY() - 150)/100) == null);
   if (MODE == MAP){
     map.drawMap();
     textSize(100);
