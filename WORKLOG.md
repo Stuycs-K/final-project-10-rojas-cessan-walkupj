@@ -23,9 +23,10 @@ Finished designing room0, room1, and room2.
 Experiencing issues with player deaths.
 Designing Map mode
 
-##5/30
+###5/30
 
-Map menu functions correctly, you can select which level after tutorial
+Map menu functions correctly, you can select which level after tutorial.
+Cleaned up obsolete code such as decisionValue for Rooms and EmptyBlock.
 
 ## Jo
 
