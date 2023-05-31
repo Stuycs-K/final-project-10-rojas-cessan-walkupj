@@ -14,4 +14,10 @@ class MonsterBlock extends Block{
     image.resize(100, 100); 
     image(image, x, y);
   }
+  public int getX(){
+    return this.x;
+  }
+  public int getY(){
+    return this.y;
+  }
 }
