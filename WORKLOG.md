@@ -23,6 +23,10 @@ Finished designing room0, room1, and room2.
 Experiencing issues with player deaths.
 Designing Map mode
 
+##5/30
+
+Map menu functions correctly, you can select which level after tutorial
+
 ## Jo
 
 ### 5/23
