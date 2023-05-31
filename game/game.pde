@@ -1,5 +1,6 @@
 import java.util.*;
 private Map map;
+private int currentRoomNumber;
 private Room currentRoom;
 private Inventory inventory;
 private Player player; 
@@ -25,12 +26,13 @@ void keyReleased() {
 
 void setup(){
   MODE = 0;
+  currentRoomNumber = 0;
   size(1000, 650);
   map = new Map();
-  map.add(new Room(0, 0);
-  map.add(new Room(0, 1);
-  map.add(new Room(0, 1);
-  currentRoom = new Room(0, 0);
+  map.add(new Room(0));
+  map.add(new Room(1));
+  map.add(new Room(2));
+  currentRoom = map.get(currentRoomNumber);
   for(int i = 0; i < width / 100; i++){
     currentRoom.addBlock(new EarthBlock(), i, 4);
   }
@@ -42,18 +44,22 @@ void setup(){
 }
 
 void mousePressed(){
-  initMouseY = mouseY;
-  initMouseX = mouseX;
-  if(initMouseY >= 500){
-    inventoryFromMouse = mouseX / 100;
+  if (MODE == WALK){
+    initMouseY = mouseY;
+    initMouseX = mouseX;
+    if(initMouseY >= 500){
+      inventoryFromMouse = mouseX / 100;
+    }
+    else{
+      roomRFromMouse = mouseX / 100;
+      roomCFromMouse = mouseY / 100;
+    }
   }
-  else{
-    roomRFromMouse = mouseX / 100;
-    roomCFromMouse = mouseY / 100;
-  }
+
 }
 
 void mouseReleased(){
+
   if(initMouseY < 500 && mouseY >= 500){ // room to inv
     inventoryFromMouse = mouseX / 100;
     inventory.addToInventory(currentRoom.get(initMouseX / 100, initMouseY / 100), inventoryFromMouse);
@@ -75,20 +81,23 @@ void mouseReleased(){
 
 void mouseClicked(){
   //map menu
+  MODE = WALK;
   if (MODE == MAP){
-        if (currentRoom.mouseWithinRoom(mouseX, mouseY) {
-        map.value0 = 255;
+      if (mouseX > 100 ) {
+        square (400, 400, 400);
+        currentRoomNumber++;
         MODE = WALK;
       } else {
-        map.value1 = 0;
+        //
       }
    }
 }
 
 
 void draw(){
-  drawSetting();
+  System.out.println(MODE);
   if (MODE == WALK){
+    drawSetting();
     if (keyboardInput.isPressed(Controller.P1_LEFT)) {
       player.left = true;
       player.walkLeft();
@@ -111,6 +120,9 @@ void draw(){
   }
   if (MODE == MAP){
     map.drawMap();
+    textSize(100);
+    text("Map", 10, 70);
+    
   }
   fill(0);
 }

@@ -1,36 +1,28 @@
 class Map{
-  private Room[] timeline;
+  private ArrayList<Room> timeline;
   public int value0 = 255;
   public int value1 = 255;
   public int value2 = 255;
   //private String name; opt if multiple maps
 
    public Map(){
-     timeline = new Room[3];
+     timeline = new ArrayList<Room>();
+   }
+   
+   public void add(Room room){
+     timeline.add(room);
+   }
+   
+   public Room get (int index){
+     return timeline.get(index);
    }
    public void drawMap(){
      background(0);
-     for (int i = 0; i < 3; i ++){
-        drawRoomMap(i);
+     for (Room room : timeline){
+        room.drawRoomMap();
      }
    }
    
-   public void drawRoomMap(int n){
-      if (n == 0){
-         stroke(255);
-         fill(value0);
-         circle(100, 250, 100);
-      }
-      if (n == 1){
-         stroke(255);
-         fill(value1);
-         circle(250, 100, 100);
-      }
-      if (n == 2){
-         stroke(255);
-         fill(value2);
-         circle(250, 400, 100);
-      }
-   }
+  
    
 }

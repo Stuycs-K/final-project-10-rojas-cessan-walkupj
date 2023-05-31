@@ -11,8 +11,8 @@ class Room{
     value = 255;
   }
   
-  public int getdV(){
-    return dV;
+  public int getNum(){
+    return roomNumber;
   }
   public String getName(){
     return name;
@@ -102,6 +102,20 @@ class Room{
    }
    public void setValue(int n){
      value = n;
+   }
+   
+   public void drawRoomMap(){
+     stroke(255);
+     fill(255);
+      if (roomNumber == 0){
+         square(100, 250, 100);
+      }
+      if (roomNumber == 1){
+         square(250, 100, 100);
+      }
+      if (roomNumber == 2){
+         square(250, 400, 100);
+      }
    }
 
 }
