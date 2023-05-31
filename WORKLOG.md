@@ -9,10 +9,6 @@ Started Inventory, Map, Player, and Room classes on java files
 
 Established main game interface, walk mode (left and right), and setting in draw
 
-### 5/25
-
-Drawing blocks in a room and loading background images
-
 
 ## Jo
 
@@ -40,3 +36,8 @@ Added add and remove methods to inventory class and tested
 Added a drag and drop method to get blocks from inventory to room
 Added remove method to room to enable drag n drop both ways
 Can drag n drop from room to inventory, from room to room, and from inventory to room- potential issue: if u drop it onto another block and then move it again, the first drop space will be null
+
+
+### 5/30
+
+Worked on gravity and making player fall if they go below the horizon

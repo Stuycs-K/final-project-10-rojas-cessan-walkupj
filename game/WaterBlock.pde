@@ -1,4 +1,6 @@
 class WaterBlock extends Block{
+  private boolean interactable = false;
+    private int x, y;
   private PImage image = loadImage("blockImages/waterBlock.png");
   public WaterBlock(){
     this.image = image;
@@ -7,6 +9,8 @@ class WaterBlock extends Block{
     
   }
   public void drawBlock(int x, int y){
+    this.x = x;
+    this.y = y;
     image.resize(100, 100); 
     image(image, x, y);
   }

@@ -21,6 +21,21 @@ class Room{
     return blockGrid[x][y] != null;
   }
   
+  public int[][] getHorizon(){
+    int[][] horizonCoors = new int[10][2];
+    //int r = 0;
+    //for(int i = 0; i < blockGrid.length; i++){
+    //  for(int j = 0; j < blockGrid[i].length; j++){
+    //    if(thereIsBlock(i, j)){
+    //      horizonCoors[r][0] = i*100;
+    //      horizonCoors[r][1] = j*100;
+    //      r++;
+    //    }
+    //  }
+    //}
+    return horizonCoors;
+  }
+  
   public void drawBlockGrid(){
     for (int r = 0; r < 10; r ++){
       for (int c = 0; c < 6; c ++){

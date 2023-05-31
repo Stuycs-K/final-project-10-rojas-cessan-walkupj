@@ -10,7 +10,6 @@ private int initMouseY;
 private int initMouseX;
 private int roomRFromMouse;
 private int roomCFromMouse;
-private boolean isLayer;
 private static final int WALK = 0;
 private static final int MAP = 1;
 Controller keyboardInput;
@@ -65,6 +64,8 @@ void mousePressed(){
 
 }
 
+// if(currentRoom.get(initMouseX / 100, initMouseY / 100).interactable == true)
+
 void mouseReleased(){
 
   if(initMouseY < 500 && mouseY >= 500){ // room to inv
@@ -111,6 +112,7 @@ void draw(){
      MODE = MAP;
    } 
   }
+  //currentRoom.getHorizon();
   if (MODE == MAP){
     map.drawMap();
     textSize(100);
