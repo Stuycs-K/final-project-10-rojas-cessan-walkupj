@@ -15,6 +15,14 @@ private static final int WALK = 0;
 private static final int MAP = 1;
 Controller keyboardInput;
 
+void changeMode(){
+  if (MODE == WALK){
+    MODE = MAP;
+  } else {
+    MODE = WALK;
+  }
+}
+
 void keyPressed() {
   keyboardInput.press(keyCode);
 }
@@ -79,19 +87,7 @@ void mouseReleased(){
   }
 }
 
-void mouseClicked(){
-  //map menu
-  MODE = WALK;
-  if (MODE == MAP){
-      if (mouseX > 100 ) {
-        square (400, 400, 400);
-        currentRoomNumber++;
-        MODE = WALK;
-      } else {
-        //
-      }
-   }
-}
+
 
 
 void draw(){
@@ -122,13 +118,17 @@ void draw(){
     map.drawMap();
     textSize(100);
     text("Map", 10, 70);
+    if (mouseX > 800){
+      MODE = WALK;
+      currentRoomNumber++;
+      setup();
+    }
     
   }
   fill(0);
 }
 
 public void drawSetting(){
-  background(255); //each block is 100
   currentRoom.drawRoom();
   player.drawPlayer();
   inventory.drawInventory();
