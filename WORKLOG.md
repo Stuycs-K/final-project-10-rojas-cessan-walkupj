@@ -41,3 +41,8 @@ Can drag n drop from room to inventory, from room to room, and from inventory to
 ### 5/30
 
 Worked on gravity and making player fall if they go below the horizon
+
+
+### 5/31
+
+Added a getX and getY to each block

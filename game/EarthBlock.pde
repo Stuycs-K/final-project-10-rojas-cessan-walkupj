@@ -10,4 +10,10 @@ class EarthBlock extends Block{
     this.y = y;
     image(image, x, y, 100, 100);
   }
+  public int getX(){
+    return this.x;
+  }
+  public int getY(){
+    return this.y;
+  }
 }
