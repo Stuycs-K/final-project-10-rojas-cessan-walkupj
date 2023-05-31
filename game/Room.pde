@@ -3,12 +3,11 @@ class Room{
   private Block[][] blockGrid;
   private PImage background = loadImage("fortniteBackground.jpeg");
   private int roomNumber;
-  private int value;
 
   public Room(int roomNumber){
     blockGrid = new Block[10][10];
     this.roomNumber = roomNumber;
-    value = 255;
+    
   }
   
   public int getNum(){
@@ -100,21 +99,22 @@ class Room{
        }
      }
    }
-   public void setValue(int n){
-     value = n;
-   }
+
    
    public void drawRoomMap(){
-     stroke(255);
+     stroke(0);
      fill(255);
       if (roomNumber == 0){
-         square(100, 250, 100);
+         square(100, 300, 100);
+         text("0", 100, 300);
       }
       if (roomNumber == 1){
-         square(250, 100, 100);
+         square(400, 300, 100);
+         text("1", 400, 300);
       }
       if (roomNumber == 2){
-         square(250, 400, 100);
+         square(700, 300, 100);
+         text("2", 700, 300);
       }
    }
 

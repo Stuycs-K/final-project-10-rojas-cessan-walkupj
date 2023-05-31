@@ -1,6 +1,6 @@
 import java.util.*;
 private Map map;
-private int currentRoomNumber;
+private int currentRoomNumber = 0;
 private Room currentRoom;
 private Inventory inventory;
 private Player player; 
@@ -34,7 +34,6 @@ void keyReleased() {
 
 void setup(){
   MODE = 0;
-  currentRoomNumber = 0;
   size(1000, 650);
   map = new Map();
   map.add(new Room(0));
@@ -91,7 +90,6 @@ void mouseReleased(){
 
 
 void draw(){
-  System.out.println(MODE);
   if (MODE == WALK){
     drawSetting();
     if (keyboardInput.isPressed(Controller.P1_LEFT)) {
@@ -110,7 +108,6 @@ void draw(){
     }
     //if player is at the end
    if (player.getX() > 900){
-     currentRoom.setValue(150);
      MODE = MAP;
    } 
   }
@@ -118,9 +115,19 @@ void draw(){
     map.drawMap();
     textSize(100);
     text("Map", 10, 70);
-    if (mouseX > 800){
+    if (mousePressed == true && mouseX > 100 && mouseX < 200 && mouseY > 300 && mouseY < 400){
       MODE = WALK;
-      currentRoomNumber++;
+      currentRoomNumber= 0;
+      setup();
+    }
+     if (mousePressed == true && mouseX > 400 && mouseX < 500 && mouseY > 300 && mouseY < 400){
+      MODE = WALK;
+      currentRoomNumber= 1;
+      setup();
+    }
+     if (mousePressed == true && mouseX > 700 && mouseX < 800 && mouseY > 300 && mouseY < 400){
+      MODE = WALK;
+      currentRoomNumber= 2;
       setup();
     }
     
