@@ -1,5 +1,6 @@
 import java.util.*;
 private Map map;
+private int currentRoomNumber = 0;
 private Room currentRoom;
 private Inventory inventory;
 private Player player; 
@@ -10,10 +11,16 @@ private int initMouseX;
 private int roomRFromMouse;
 private int roomCFromMouse;
 private static final int WALK = 0;
-private static final int BUILD = 1;
-private static final int INVENTORY = 2;
-private static final int MAP = 3;
+private static final int MAP = 1;
 Controller keyboardInput;
+
+void changeMode(){
+  if (MODE == WALK){
+    MODE = MAP;
+  } else {
+    MODE = WALK;
+  }
+}
 
 void keyPressed() {
   keyboardInput.press(keyCode);
@@ -28,7 +35,10 @@ void setup(){
   MODE = 0;
   size(1000, 650);
   map = new Map();
-  currentRoom = new Room(0, 0);
+  map.add(new Room(0));
+  map.add(new Room(1));
+  map.add(new Room(2));
+  currentRoom = map.get(currentRoomNumber);
   for(int i = 0; i < width / 100; i++){
     currentRoom.addBlock(new EarthBlock(), i, 4);
   }
@@ -40,20 +50,24 @@ void setup(){
 }
 
 void mousePressed(){
-  initMouseY = mouseY;
-  initMouseX = mouseX;
-  if(initMouseY >= 500){
-    inventoryFromMouse = mouseX / 100;
+  if (MODE == WALK){
+    initMouseY = mouseY;
+    initMouseX = mouseX;
+    if(initMouseY >= 500){
+      inventoryFromMouse = mouseX / 100;
+    }
+    else{
+      roomRFromMouse = mouseX / 100;
+      roomCFromMouse = mouseY / 100;
+    }
   }
-  else{
-    roomRFromMouse = mouseX / 100;
-    roomCFromMouse = mouseY / 100;
-  }
+
 }
 
 // if(currentRoom.get(initMouseX / 100, initMouseY / 100).interactable == true)
 
 void mouseReleased(){
+
   if(initMouseY < 500 && mouseY >= 500){ // room to inv
     inventoryFromMouse = mouseX / 100;
     inventory.addToInventory(currentRoom.get(initMouseX / 100, initMouseY / 100), inventoryFromMouse);
@@ -73,9 +87,12 @@ void mouseReleased(){
   }
 }
 
+
+
+
 void draw(){
-  drawSetting();
   if (MODE == WALK){
+    drawSetting();
     if (keyboardInput.isPressed(Controller.P1_LEFT)) {
       player.left = true;
       player.walkLeft();
@@ -98,12 +115,29 @@ void draw(){
   //currentRoom.getHorizon();
   if (MODE == MAP){
     map.drawMap();
+    textSize(100);
+    text("Map", 10, 70);
+    if (mousePressed == true && mouseX > 100 && mouseX < 200 && mouseY > 300 && mouseY < 400){
+      MODE = WALK;
+      currentRoomNumber= 0;
+      setup();
+    }
+     if (mousePressed == true && mouseX > 400 && mouseX < 500 && mouseY > 300 && mouseY < 400){
+      MODE = WALK;
+      currentRoomNumber= 1;
+      setup();
+    }
+     if (mousePressed == true && mouseX > 700 && mouseX < 800 && mouseY > 300 && mouseY < 400){
+      MODE = WALK;
+      currentRoomNumber= 2;
+      setup();
+    }
+    
   }
   fill(0);
 }
 
 public void drawSetting(){
-  background(255); //each block is 100
   currentRoom.drawRoom();
   player.drawPlayer();
   inventory.drawInventory();

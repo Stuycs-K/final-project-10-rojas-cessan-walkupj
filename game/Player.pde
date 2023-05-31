@@ -56,7 +56,7 @@ class Player{
     if (location[0] > width-50){
       location[0] = width-50;
     }
-      location[0] += 25;  
+      location[0] += 50;  
   }
   
   public void walkUp(){

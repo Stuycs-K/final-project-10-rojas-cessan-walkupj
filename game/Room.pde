@@ -1,18 +1,17 @@
 class Room{
-  private int dV;
   private String name;
   private Block[][] blockGrid;
   private PImage background = loadImage("fortniteBackground.jpeg");
   private int roomNumber;
 
-  public Room(int decisionValue, int roomNumber){
-    dV = decisionValue;
+  public Room(int roomNumber){
     blockGrid = new Block[10][10];
     this.roomNumber = roomNumber;
+    
   }
   
-  public int getdV(){
-    return dV;
+  public int getNum(){
+    return roomNumber;
   }
   public String getName(){
     return name;
@@ -47,6 +46,7 @@ class Room{
       }
     }
   }
+  
   public void addBlock(Block block, int r, int c){
     blockGrid[r][c] = block;
   }
@@ -62,10 +62,10 @@ class Room{
       setupRoom0();           
     }
     if (roomNumber == 1){
-      setupRoom0();           
+      setupRoom1();           
     }
     if (roomNumber == 2){
-      setupRoom0();           
+      setupRoom2();           
     }
     drawBlockGrid();
     
@@ -109,9 +109,28 @@ class Room{
        currentRoom.addBlock(new WaterBlock(), i, 4);
      }
      for (int i = 0; i < 10; i++){
-       if (i != 2 && i != 6){
+       if (i != 2 && i != 4 && i != 6){
          currentRoom.addBlock(new EarthBlock(), i, 3);
        }
      }
    }
+
+   
+   public void drawRoomMap(){
+     stroke(0);
+     fill(255);
+      if (roomNumber == 0){
+         square(100, 300, 100);
+         text("0", 100, 300);
+      }
+      if (roomNumber == 1){
+         square(400, 300, 100);
+         text("1", 400, 300);
+      }
+      if (roomNumber == 2){
+         square(700, 300, 100);
+         text("2", 700, 300);
+      }
+   }
+
 }

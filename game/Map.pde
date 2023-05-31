@@ -1,19 +1,28 @@
 class Map{
-  private PriorityQueue<Room> timeline;
+  private ArrayList<Room> timeline;
+  public int value0 = 255;
+  public int value1 = 255;
+  public int value2 = 255;
   //private String name; opt if multiple maps
 
    public Map(){
-     timeline = new PriorityQueue<Room>();
+     timeline = new ArrayList<Room>();
+   }
+   
+   public void add(Room room){
+     timeline.add(room);
+   }
+   
+   public Room get (int index){
+     return timeline.get(index);
    }
    public void drawMap(){
      background(0);
-     fill(255);
-     stroke(255);
-     circle(300, 300, 100);
-     circle(600, 150, 100);
-     circle(600, 500, 100);
-     line(300, 300, 600, 150);
-     line(300, 300, 600, 500);
+     for (Room room : timeline){
+        room.drawRoomMap();
+     }
    }
+   
+  
    
 }
