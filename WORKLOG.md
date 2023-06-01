@@ -72,3 +72,4 @@ Worked on gravity to make Sonny fall
 ### 6/1
 
 GRAVITY WORKS!!! demoable stage reached!
+added death screen and way to return to map
