@@ -3,10 +3,11 @@ class Controller {
   static final int P1_RIGHT = 1;
   static final int P1_UP = 2;
   static final int P1_DOWN = 3;
+  static final int SHIFT_KEY = 4;
   boolean [] inputs;
 
   public Controller() {
-    inputs = new boolean[4];//4 valid buttons w a d s
+    inputs = new boolean[5];//4 valid buttons w a d s
   }
 
   /**@param code: a valid constant e.g. P1_LEFT
@@ -24,6 +25,8 @@ class Controller {
       inputs[P1_UP] = true;
     if(code == 'S')
       inputs[P1_DOWN] = true;
+    if(code == SHIFT)
+      inputs[SHIFT_KEY] = true;
   }
   void release(int code) {
     if(code == 'A')
@@ -34,5 +37,7 @@ class Controller {
       inputs[P1_UP] = false;
     if(code == 'S')
       inputs[P1_DOWN] = false;
+    if(code == SHIFT)
+      inputs[SHIFT_KEY] = true;
   }
 }

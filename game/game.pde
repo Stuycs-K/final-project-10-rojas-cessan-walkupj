@@ -4,6 +4,7 @@ private int currentRoomNumber = 0;
 private Room currentRoom;
 private Inventory inventory;
 private Player player; 
+private PImage deathImage;
 private int MODE; 
 private int inventoryFromMouse;
 private int initMouseY;
@@ -12,6 +13,7 @@ private int roomRFromMouse;
 private int roomCFromMouse;
 private static final int WALK = 0;
 private static final int MAP = 1;
+private static final int DEATH = 2;
 Controller keyboardInput;
 
 void changeMode(){
@@ -32,6 +34,7 @@ void keyReleased() {
 
 
 void setup(){
+  frameRate(30);
   MODE = 0;
   size(1000, 650);
   map = new Map();
@@ -45,8 +48,13 @@ void setup(){
   }
   inventory = new Inventory();
   inventory.addToInventory(new BridgeBlock(), 0);
+  inventory.addToInventory(new BridgeBlock(), 1);
+  inventory.addToInventory(new BridgeBlock(), 2);
+  inventory.addToInventory(new BridgeBlock(), 3);
+  inventory.addToInventory(new BridgeBlock(), 4);
   player = new Player();
   keyboardInput = new Controller();
+  deathImage = loadImage("blockImages/youDied.jpg");
   drawSetting();
 }
 
@@ -62,10 +70,9 @@ void mousePressed(){
       roomCFromMouse = mouseY / 100;
     }
   }
-
 }
 
-// if(currentRoom.get(initMouseX / 100, initMouseY / 100).interactable == true)
+
 
 void mouseReleased(){
 
@@ -113,8 +120,16 @@ void draw(){
      MODE = MAP;
    } 
   }
-  if(currentRoom.getBlock(player.getX()/100, (player.getY() + 150)/100) == null){
+  if(currentRoom.getBlock((player.getX() - 25)/100, (player.getY() + 150)/100) == null){ //death thing
     player.fall();
+    MODE = DEATH;
+  }
+  if(MODE == DEATH){
+    deathImage.resize(width, height);
+    image(deathImage, 0, 0);
+    fill(255, 255, 255);
+    text("press shift to return to the map and try again", 50, 50);
+    if(keyboardInput.isPressed(Controller.SHIFT_KEY)) MODE = MAP;
   }
   if (MODE == MAP){
     map.drawMap();
