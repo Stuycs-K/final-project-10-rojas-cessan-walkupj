@@ -54,7 +54,4 @@ void keyReleased(){
       break;     
   }
   
-  void update(){
-    if 
-  }
 }
