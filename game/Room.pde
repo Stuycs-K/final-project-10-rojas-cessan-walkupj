@@ -84,16 +84,16 @@ class Room{
          currentRoom.addBlock(new EarthBlock(), i, 3);
        }
      }
-     currentRoom.addBlock(new EmptyBlock(), 4, 3);
-     currentRoom.addBlock(new EmptyBlock(), 5, 3);
-     for(int i = 0; i < 10; i++){
-       for(int j = 0; j < 3; j++){
-         currentRoom.addBlock(new EmptyBlock(), i, j);
-       }
-     }
-     for (int i = 0; i < 10; i++){
-       currentRoom.addBlock(new EmptyBlock(), i, 5);
-     }
+     //currentRoom.addBlock(new EmptyBlock(), 4, 3);
+     //currentRoom.addBlock(new EmptyBlock(), 5, 3);
+     //for(int i = 0; i < 10; i++){
+     //  for(int j = 0; j < 3; j++){
+     //    currentRoom.addBlock(new EmptyBlock(), i, j);
+     //  }
+     //}
+     //for (int i = 0; i < 10; i++){
+     //  currentRoom.addBlock(new EmptyBlock(), i, 5);
+     //}
    }
    
    public void setupRoom1(){

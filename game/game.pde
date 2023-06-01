@@ -113,10 +113,9 @@ void draw(){
      MODE = MAP;
    } 
   }
-  if(currentRoom.getBlock(player.getX()/100, (player.getY() + 150)/100).isEmpty()){
+  if(currentRoom.getBlock(player.getX()/100, (player.getY() + 150)/100) == null){
     player.fall();
   }
-  println(currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100).isEmpty());
   if (MODE == MAP){
     map.drawMap();
     textSize(100);
