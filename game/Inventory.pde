@@ -1,5 +1,4 @@
 public class Inventory{
-  private int totalSpace;
   private Block[] inventory; 
   
   public Inventory(){
