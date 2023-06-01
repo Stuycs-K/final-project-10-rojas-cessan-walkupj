@@ -113,10 +113,12 @@ void draw(){
      MODE = MAP;
    } 
   }
-  if(currentRoom.thereIsBlock(player.getX()/100, player.getY()/100)) player.fall();
-  //println(currentRoom.getBlock((player.getX() - 75)/100, (player.getY() - 150)/100));
-  //println("x = " + player.getX()/100);
-  //println("y = " + player.getY()/100);
+  if(currentRoom.getBlock(player.getX()/100, player.getY()/100).isEmpty()){
+    player.fall();
+  }
+  println(currentRoom.getBlock((player.getX() - 75)/100, (player.getY() - 150)/100));
+  println("x = " + player.getX()/100);
+  println("y = " + player.getY()/100);
   println(currentRoom.getBlock((player.getX() - 75)/100, (player.getY() - 150)/100) == null);
   if (MODE == MAP){
     map.drawMap();
