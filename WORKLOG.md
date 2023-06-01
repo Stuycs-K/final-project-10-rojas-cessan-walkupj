@@ -63,3 +63,7 @@ Worked on gravity and making player fall if they go below the horizon
 
 Added a getX and getY to each block
 Worked on gravity to make Sonny fall
+
+### 6/1
+
+GRAVITY WORKS!!! demoable stage reached!
