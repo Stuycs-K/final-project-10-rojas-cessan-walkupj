@@ -7,4 +7,6 @@ abstract class Block{
   public abstract int getX();
   
   public abstract int getY();
+  
+  public abstract boolean isEmpty();
 }
