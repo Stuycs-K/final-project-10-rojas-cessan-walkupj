@@ -6,29 +6,30 @@ class Player{
   private int pheight = 150;
   private int pwidth = 75;
   private boolean left;
-  private int[] location;
+  private int x, y;
   //private Inventory inventory;
   //150 tall, 100 across
   public Player(){
      name = "Sonny";
-     location = new int[]{0,160};
+     x = 0;
+     y = 160;
   }
   
   public int getX(){
-    return location[0];
+    return x;
   }
   public int getY(){
-    return location[1];
+    return y;
   }
   
   public void drawPlayer(){ //placeholder for image
     if(left){
       leftImage.resize(pwidth, pheight);
-      image(leftImage, location[0], location[1]);
+      image(leftImage, x, y);
     }
     else{
       rightImage.resize(pwidth, pheight);
-      image(rightImage, location[0], location[1]);
+      image(rightImage, x, y);
     }
   }
   
@@ -41,46 +42,46 @@ class Player{
   //}
   
   public void walkLeft(){
-    if (location[0] < 0){
-      location[0] = 0;
+    if (x < 0){
+      x = 0;
     }
-    if (location[0] > width-50){
-      location[0] = width-50;
+    if (x > width-50){
+      x = width-50;
     }
-    location[0] -= 50;  
+    x -= 20;  
   }
   public void walkRight(){
-    if (location[0] < 0){
-      location[0] = 0;
+    if (x < 0){
+      x = 0;
     }
-    if (location[0] > width-50){
-      location[0] = width-50;
+    if (x > width-50){
+      x = width-50;
     }
-      location[0] += 25;  
+      x += 20;  
   }
   
   public void walkUp(){
-    if (location[1] < 0){
-      location[1] = 0;
+    if (y < 0){
+      y = 0;
     }
-    if (location[1] > width-50){
-      location[1] = width-50;
+    if (y > width-50){
+      y = width-50;
     }
-    location[1] -= 50;  
+    y -= 50;  
   }
   
   public void walkDown(){
-    if (location[1] < 0){
-      location[1] = 0;
+    if (y < 0){
+      y = 0;
     }
-    if (location[1] > width-50){
-      location[1] = width-50;
+    if (y > width-50){
+      y = width-50;
     }
-    location[1] += 50;  
+    y += 50;  
   }
   
   public void fall(){
-    location[1] = 0;
+    y = 0;
   }
 
 }
