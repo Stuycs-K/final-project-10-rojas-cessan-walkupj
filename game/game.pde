@@ -103,17 +103,17 @@ void draw(){
     drawSetting();
     if (keyboardInput.isPressed(Controller.P1_LEFT)) {
       player.left = true;
-      player.walkLeft();
+      left = true;
     }
     if (keyboardInput.isPressed(Controller.P1_RIGHT)) {
       player.left = false;
-      player.walkRight();
+      right = true;
     }
     if (keyboardInput.isPressed(Controller.P1_UP)) {
-      player.walkUp();
+      up = true;
     }
     if (keyboardInput.isPressed(Controller.P1_DOWN)) {
-      player.walkDown();
+      down = true;
     }
     //if player is at the end
    if (player.getX() > 900){
@@ -157,6 +157,7 @@ void draw(){
 
 public void drawSetting(){
   currentRoom.drawRoom();
+  player.update();
   player.drawPlayer();
   inventory.drawInventory();
 }
