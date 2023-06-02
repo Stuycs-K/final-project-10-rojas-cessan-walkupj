@@ -33,6 +33,11 @@ Cleaned up obsolete code such as decisionValue for Rooms and EmptyBlock.
 Submitted current game to demo branch
 Experimenting with gravity and improved player movement in separate file
 
+### 6/1
+
+Furthered platforming on separate files, now can interact with platforms, bugs with jumping
+Cleaned code and death by jump bug for demo
+
 ## Jo
 
 ### 5/23
