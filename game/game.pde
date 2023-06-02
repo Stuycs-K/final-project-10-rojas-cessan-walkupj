@@ -6,24 +6,16 @@ private Inventory inventory;
 private Player player; 
 private PImage deathImage;
 private int MODE; 
-private static final int WALK = 0;
-private static final int MAP = 1;
-private static final int DEATH = 2;
 private int inventoryFromMouse;
 private int initMouseY;
 private int initMouseX;
 private int roomRFromMouse;
 private int roomCFromMouse;
+private static final int WALK = 0;
+private static final int MAP = 1;
+private static final int DEATH = 2;
 Controller keyboardInput;
-private boolean left, right, up, down;
 
-void changeMode(){
-  if (MODE == WALK){
-    MODE = MAP;
-  } else {
-    MODE = WALK;
-  }
-}
 
 void keyPressed() {
   keyboardInput.press(keyCode);
@@ -38,20 +30,17 @@ void setup(){
   frameRate(30);
   MODE = 0;
   size(1000, 650);
-  //map and room
   map = new Map();
   map.add(new Room(0));
   map.add(new Room(1));
   map.add(new Room(2));
   currentRoom = map.get(currentRoomNumber);
-  //inventory
   inventory = new Inventory();
   inventory.addToInventory(new BridgeBlock(), 0);
   inventory.addToInventory(new BridgeBlock(), 1);
   inventory.addToInventory(new BridgeBlock(), 2);
   inventory.addToInventory(new BridgeBlock(), 3);
   inventory.addToInventory(new BridgeBlock(), 4);
-  //player
   player = new Player();
   keyboardInput = new Controller();
   deathImage = loadImage("blockImages/youDied.jpg");
@@ -103,24 +92,24 @@ void draw(){
     drawSetting();
     if (keyboardInput.isPressed(Controller.P1_LEFT)) {
       player.left = true;
-      left = true;
+      player.walkLeft();
     }
     if (keyboardInput.isPressed(Controller.P1_RIGHT)) {
       player.left = false;
-      right = true;
+      player.walkRight();
     }
     if (keyboardInput.isPressed(Controller.P1_UP)) {
-      up = true;
+      //player.walkUp();
     }
     if (keyboardInput.isPressed(Controller.P1_DOWN)) {
-      down = true;
+      player.walkDown();
     }
     //if player is at the end
    if (player.getX() > 900){
      MODE = MAP;
    } 
   }
-  if(currentRoom.getBlock((player.getX() - 20)/100, (player.getY() + 150)/100) == null){ //death thing
+  if(currentRoom.getBlock((player.getX() - 25)/100, (player.getY() + 150)/100) == null){ //death thing
     player.fall();
     MODE = DEATH;
   }
@@ -157,7 +146,6 @@ void draw(){
 
 public void drawSetting(){
   currentRoom.drawRoom();
-  player.update();
   player.drawPlayer();
   inventory.drawInventory();
 }

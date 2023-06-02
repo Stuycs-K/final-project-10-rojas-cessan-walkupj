@@ -3,102 +3,84 @@ class Player{
   private PImage leftImage = loadImage("blockImages/playerLeft.png");
   private PImage rightImage = loadImage("blockImages/playerRight.png");
   private int health;
-  float x, y, vx, vy, accX, accY;
-  float gravity, bounce, friction;
-  float jumpForce;
-  private int h = 150;
-  private int w = 75;
+  private int pheight = 150;
+  private int pwidth = 75;
   private boolean left;
-
+  private int[] location;
+  //private Inventory inventory;
+  //150 tall, 100 across
   public Player(){
      name = "Sonny";
-     x = 0;
-     y = 160;
-    vx = 0;
-    vy = 0;
-    accX = 0;
-    accY = 0;
-    jumpForce = -5;
-
-    friction = 0.96;
-    gravity = 0.6;
-    bounce = -0.2;
+     location = new int[]{0,160};
   }
   
   public int getX(){
-    return (int)x;
+    return location[0];
   }
   public int getY(){
-    return (int)y;
+    return location[1];
   }
   
   public void drawPlayer(){ //placeholder for image
     if(left){
-      leftImage.resize(w, h);
-      image(leftImage, x, y);
+      leftImage.resize(pwidth, pheight);
+      image(leftImage, location[0], location[1]);
     }
     else{
-      rightImage.resize(w, h);
-      image(rightImage, x, y);
+      rightImage.resize(pwidth, pheight);
+      image(rightImage, location[0], location[1]);
     }
   }
   
- void update() {
-    if (left && !right) {
-      accX = -0.2;
-      friction = 1;
+  //public void drawPlayerLeft(){ //placeholder for image
+  //  image(leftImage, location[0], location[1]);
+  //}
+  
+  //  public void drawPlayerRight(){ //placeholder for image
+  //  image(rightImage, location[0], location[1]);
+  //}
+  
+  public void walkLeft(){
+    if (location[0] < 0){
+      location[0] = 0;
     }
-    if (!left && right) {
-      accX = 0.2;
-      friction = 1;
+    if (location[0] > width-50){
+      location[0] = width-50;
     }
-    if (!left && !right) accX = 0;
-    if (up && !down) {
-      accY = -0.2;
-      gravity = 0;
-      friction = 1;
-    }
-    if (!up && down) {
-      accY = 0.2;
-      friction = 1;
-    }
-    if (!up && !down) accY = 0;
-    if (!up && !down && !left && !right) {
-      friction = 0.96;
-      gravity = 0.3;
-    }
-
-    vx += accX;
-    vy += accY;
-    vx *= friction;
-    vx *= friction;
-    vy += gravity;
-    x+= vx;
-    y+= vy;
-    bounds();
+    location[0] -= 25;  
   }
-
-  void bounds() {
-    if (x< 0) {
-      vx *= bounce;
-      x =0;
+  public void walkRight(){
+    if (location[0] < 0){
+      location[0] = 0;
     }
-    if (x + w > width) {
-      vx *= bounce;
-      x = width - w;
+    if (location[0] > width-50){
+      location[0] = width-50;
     }
-    if (y< 160) {
-      vy *= bounce;
-      y =160;
-    }
-    if (y + h > height) {
-      vy *= bounce;
-      y = height - h;
-    }
+      location[0] += 25;  
   }
-public void fall(){
-    y = 0;
+  
+  public void walkUp(){
+    if (location[1] < 0){
+      location[1] = 0;
+    }
+    if (location[1] > width-50){
+      location[1] = width-50;
+    }
+    location[1] -= 50;  
   }
-
+  
+  public void walkDown(){
+    if (location[1] < 0){
+      location[1] = 0;
+    }
+    if (location[1] > width-50){
+      location[1] = width-50;
+    }
+    location[1] += 50;  
+  }
+  
+  public void fall(){
+    location[1] = 0;
+  }
 
 }
