@@ -87,9 +87,9 @@ class Player{
       vx *= bounce;
       x = width - w;
     }
-    if (y< 0) {
+    if (y< 160) {
       vy *= bounce;
-      y =0;
+      y =160;
     }
     if (y + h > height) {
       vy *= bounce;

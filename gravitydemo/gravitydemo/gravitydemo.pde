@@ -14,17 +14,56 @@ void setup(){
   up = false;
   down = false;
   bro = new Player();
-  p = new Platform(0, 450, 0, 25);
+  p = new Platform(300, 450, 200, 25, "safe");
 }
 
 void draw() {
   background(255);
   bro.update();
+  bro.plat = playerBlockInteraction (bro, p);
   bro.display();
   p.display();
   
 }
 
+String playerBlockInteraction (Player plyr, Platform r2){
+  if (plyr.vy < 0) {return "none";}
+  float dx = (plyr.x+plyr.w/2) - (r2.x + r2.w/2);
+  float dy = (plyr.y+plyr.h/2) - (r2.y+r2.h/2);
+  float totalhw = plyr.hw + r2.hw;
+  float totalhh = plyr.hh + r2.hh;
+  
+  if (abs(dx) < totalhw){
+    if (abs(dy) < totalhh){
+      float overlapX = totalhw - abs(dx);
+      float overlapY = totalhh - abs(dy);
+      if (overlapX >= overlapY){ 
+        if (dy > 0) {
+          plyr.y += overlapY;
+          return "top";
+        }
+        else {
+          plyr.y -= overlapY;
+          return "bottom";
+        }
+      }
+      else {
+        if (dx > 0){
+          plyr.x += overlapX;
+          return "left";
+        }
+        else{
+          plyr.x = overlapX;
+          return "right";
+        }
+          
+      }
+    }
+    else return "none";
+  }
+  else return "none";
+  
+}
 
 
 void keyPressed(){

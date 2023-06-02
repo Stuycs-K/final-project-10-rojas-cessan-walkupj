@@ -1,23 +1,32 @@
 public class Player {
-  float w, h, x, y, vx, vy, accX, accY;
+  float w, h, x, y, vx, vy, accX, accY, speedLimit;
   float gravity, bounce, friction;
+  boolean isOnGround;
   float jumpForce;
 
+  float hw, hh;
+  String plat;
+
   public Player() {
-    w = 50;
-    h = 75;
+    w = 100;
+    h = 65;
     x = 400;
     y = 150;
     vx = 0;
     vy = 0;
     accX = 0;
     accY = 0;
-    jumpForce = -5;
+    speedLimit = 10;
+    isOnGround = false;
+    jumpForce = -10;
 
     friction = 0.96;
-    gravity = 0.6;
-    bounce = -0.2;
+    gravity = 0.3;
+    bounce = 0;
 
+    hw = w/2;
+    hh = h/2;
+    plat = "";
   }
   void update() {
     if (left && !right) {
@@ -51,10 +60,10 @@ public class Player {
     vy += gravity;
     x+= vx;
     y+= vy;
-    bounds();
+    checkBoundaries();
   }
 
-  void bounds() {
+  void checkBoundaries() {
     if (x< 0) {
       vx *= bounce;
       x =0;
