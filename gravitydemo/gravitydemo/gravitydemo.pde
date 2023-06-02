@@ -1,4 +1,5 @@
 private Player bro;
+Platform p;
 
 private boolean left;
 private boolean right;
@@ -13,13 +14,18 @@ void setup(){
   up = false;
   down = false;
   bro = new Player();
+  p = new Platform(0, 450, 0, 25);
 }
 
 void draw() {
   background(255);
   bro.update();
   bro.display();
+  p.display();
+  
 }
+
+
 
 void keyPressed(){
   switch (keyCode){

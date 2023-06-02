@@ -44,7 +44,7 @@ void setup(){
   currentRoom = map.get(currentRoomNumber);
   for(int i = 0; i < width / 100; i++){
     currentRoom.addBlock(new EarthBlock(), i, 4);
-    println("in setup: " + currentRoom.getBlock(i, 4) + "i = " + i);
+    //println("in setup: " + currentRoom.getBlock(i, 4) + "i = " + i);
   }
   inventory = new Inventory();
   inventory.addToInventory(new BridgeBlock(), 0);
