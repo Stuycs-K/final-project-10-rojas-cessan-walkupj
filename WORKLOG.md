@@ -13,6 +13,20 @@ Established main game interface, walk mode (left and right), and setting in draw
 
 Drawing blocks in a room and loading background images
 
+### 5/26
+
+Drawing blocks in a room finished and designed room0.
+
+### 5/29
+
+Finished designing room0, room1, and room2.
+Experiencing issues with player deaths.
+Designing Map mode
+
+###5/30
+
+Map menu functions correctly, you can select which level after tutorial.
+Cleaned up obsolete code such as decisionValue for Rooms and EmptyBlock.
 
 ## Jo
 
@@ -40,3 +54,12 @@ Added add and remove methods to inventory class and tested
 Added a drag and drop method to get blocks from inventory to room
 Added remove method to room to enable drag n drop both ways
 Can drag n drop from room to inventory, from room to room, and from inventory to room- potential issue: if u drop it onto another block and then move it again, the first drop space will be null
+
+### 5/30
+
+Worked on gravity and making player fall if they go below the horizon
+
+### 5/31
+
+Added a getX and getY to each block
+Worked on gravity to make Sonny fall

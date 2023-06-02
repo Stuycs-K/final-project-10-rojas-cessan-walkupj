@@ -10,7 +10,6 @@ private int initMouseY;
 private int initMouseX;
 private int roomRFromMouse;
 private int roomCFromMouse;
-private boolean isLayer;
 private static final int WALK = 0;
 private static final int MAP = 1;
 Controller keyboardInput;
@@ -42,6 +41,7 @@ void setup(){
   currentRoom = map.get(currentRoomNumber);
   for(int i = 0; i < width / 100; i++){
     currentRoom.addBlock(new EarthBlock(), i, 4);
+    println("in setup: " + currentRoom.getBlock(i, 4) + "i = " + i);
   }
   inventory = new Inventory();
   inventory.addToInventory(new BridgeBlock(), 0);
@@ -65,23 +65,25 @@ void mousePressed(){
 
 }
 
+// if(currentRoom.get(initMouseX / 100, initMouseY / 100).interactable == true)
+
 void mouseReleased(){
 
   if(initMouseY < 500 && mouseY >= 500){ // room to inv
     inventoryFromMouse = mouseX / 100;
-    inventory.addToInventory(currentRoom.get(initMouseX / 100, initMouseY / 100), inventoryFromMouse);
+    inventory.addToInventory(currentRoom.getBlock(initMouseX / 100, initMouseY / 100), inventoryFromMouse);
     currentRoom.removeBlock(initMouseX / 100, initMouseY / 100);
   }
   else if(initMouseY < 500 && mouseY < 500){ // room to room
     roomRFromMouse = mouseX / 100;
     roomCFromMouse = mouseY / 100;
-    currentRoom.addBlock(currentRoom.get(initMouseX / 100, initMouseY / 100), roomRFromMouse, roomCFromMouse);
+    currentRoom.addBlock(currentRoom.getBlock(initMouseX / 100, initMouseY / 100), roomRFromMouse, roomCFromMouse);
     currentRoom.removeBlock(initMouseX / 100, initMouseY / 100);
   }
   else if(initMouseY >= 500 && mouseY < 500){ // inv to room
     roomRFromMouse = mouseX / 100;
     roomCFromMouse = mouseY / 100;
-    currentRoom.addBlock(inventory.get(inventoryFromMouse), roomRFromMouse, roomCFromMouse);
+    currentRoom.addBlock(inventory.getItem(inventoryFromMouse), roomRFromMouse, roomCFromMouse);
     inventory.removeFromInventory(inventoryFromMouse);
   }
 }
@@ -110,6 +112,9 @@ void draw(){
    if (player.getX() > 900){
      MODE = MAP;
    } 
+  }
+  if(currentRoom.getBlock(player.getX()/100, (player.getY() + 150)/100) == null){
+    player.fall();
   }
   if (MODE == MAP){
     map.drawMap();

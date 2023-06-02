@@ -47,7 +47,7 @@ class Player{
     if (location[0] > width-50){
       location[0] = width-50;
     }
-    location[0] -= 5;  
+    location[0] -= 50;  
   }
   public void walkRight(){
     if (location[0] < 0){
@@ -66,7 +66,7 @@ class Player{
     if (location[1] > width-50){
       location[1] = width-50;
     }
-    location[1] -= 10;  
+    location[1] -= 50;  
   }
   
   public void walkDown(){
@@ -76,12 +76,12 @@ class Player{
     if (location[1] > width-50){
       location[1] = width-50;
     }
-    location[1] += 10;  
+    location[1] += 50;  
   }
   
-  public void drop(){
-    for (int i = 0; i < 50; i++){
-      walkDown();
+  public void fall(){
+    for(int i = 1; i < 5; i++){
+      location[1] = i*100;
     }
   }
 
