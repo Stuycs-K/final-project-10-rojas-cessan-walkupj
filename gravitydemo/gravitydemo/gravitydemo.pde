@@ -26,12 +26,12 @@ void draw() {
   
 }
 
-String playerBlockInteraction (Player plyr, Platform r2){
+String playerBlockInteraction (Player plyr, Platform block){
   if (plyr.vy < 0) {return "none";}
-  float dx = (plyr.x+plyr.w/2) - (r2.x + r2.w/2);
-  float dy = (plyr.y+plyr.h/2) - (r2.y+r2.h/2);
-  float totalhw = plyr.hw + r2.hw;
-  float totalhh = plyr.hh + r2.hh;
+  float dx = (plyr.x+plyr.w/2) - (block.x + block.w/2);
+  float dy = (plyr.y+plyr.h/2) - (block.y+block.h/2);
+  float totalhw = plyr.hw + block.hw;
+  float totalhh = plyr.hh + block.hh;
   
   if (abs(dx) < totalhw){
     if (abs(dy) < totalhh){
