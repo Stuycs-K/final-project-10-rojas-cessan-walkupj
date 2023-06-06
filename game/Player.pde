@@ -80,7 +80,7 @@ class Player{
   }
   
   public void fall(){
-    location[1] = 0;
+    location[1] += 50;
   }
 
 }

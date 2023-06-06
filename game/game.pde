@@ -27,7 +27,7 @@ void keyReleased() {
 
 
 void setup(){
-  frameRate(30);
+  frameRate(10);
   MODE = 0;
   size(1000, 650);
   map = new Map();
@@ -111,7 +111,9 @@ void draw(){
   }
   if(currentRoom.getBlock((player.getX() - 25)/100, (player.getY() + 150)/100) == null){ //death thing
     player.fall();
-    MODE = DEATH;
+  }
+  if (player.getY() <= 0){
+     MODE = DEATH;
   }
   if(MODE == DEATH){
     deathImage.resize(width, height);
