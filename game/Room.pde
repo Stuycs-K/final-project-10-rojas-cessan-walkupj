@@ -46,7 +46,15 @@ class Room{
       }
     }
   }
-  
+  public void fillWithEmpty(){
+    for(int i = 0; i < blockGrid.length; i++){
+      for(int j = 0; j < blockGrid[i].length; j++){
+        if(blockGrid[i][j] == null){
+          blockGrid[i][j] = new EmptyBlock();
+        }
+      }
+    }
+  }
   public void addBlock(Block block, int r, int c){
     blockGrid[r][c] = block;
   }
@@ -84,6 +92,7 @@ class Room{
          currentRoom.addBlock(new EarthBlock(), i, 3);
        }
      }
+     fillWithEmpty();
      text("Try pressing the WASD keys, dragging and dropping items, and be cautious!", 10, 70);
    }
    
@@ -99,6 +108,7 @@ class Room{
          currentRoom.addBlock(new EarthBlock(), i, 3);
        }
      }
+     fillWithEmpty();
    }
    
    public void setupRoom2(){
@@ -113,6 +123,7 @@ class Room{
          currentRoom.addBlock(new EarthBlock(), i, 3);
        }
      }
+     fillWithEmpty();
    }
 
    

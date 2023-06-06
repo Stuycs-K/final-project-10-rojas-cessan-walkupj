@@ -1,13 +1,14 @@
 class StairBlock extends Block{
   private boolean interactable = true;
-    private int x, y;
+  private int x, y;
   private PImage image = loadImage("blockImages/stairBlock.jpg");
   private int space;
   public StairBlock(){
     this.image = image;
   }
   public void use(){
-
+    player.setX(this.x);
+    player.setY(this.y);
   }
   public void destroy(){
 
@@ -26,5 +27,8 @@ class StairBlock extends Block{
   }
   public boolean isEmpty(){
     return false;
+  }
+  public String type(){
+    return "Stair";
   }
 }

@@ -17,4 +17,7 @@ class EmptyBlock extends Block{
   public boolean isEmpty(){
     return true;
   }
+  public String type(){
+    return "Empty";
+  }
 }

@@ -19,4 +19,7 @@ class EarthBlock extends Block{
   public boolean isEmpty(){
     return false;
   }
+  public String type(){
+    return "Earth";
+  }
 }

@@ -9,4 +9,6 @@ abstract class Block{
   public abstract int getY();
   
   public abstract boolean isEmpty();
+  
+  public abstract String type();
 }

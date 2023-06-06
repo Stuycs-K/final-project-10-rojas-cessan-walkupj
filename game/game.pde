@@ -41,6 +41,7 @@ void setup(){
   inventory.addToInventory(new BridgeBlock(), 2);
   inventory.addToInventory(new BridgeBlock(), 3);
   inventory.addToInventory(new BridgeBlock(), 4);
+  inventory.addToInventory(new StairBlock(), 5);
   player = new Player();
   keyboardInput = new Controller();
   deathImage = loadImage("blockImages/youDied.jpg");
@@ -109,11 +110,12 @@ void draw(){
      MODE = MAP;
    } 
   }
-  if(currentRoom.getBlock((player.getX() - 25)/100, (player.getY() + 150)/100) == null){ //death thing
+  Block currentBlock = currentRoom.getBlock((player.getX() - 25)/100, (player.getY() + 150)/100);
+  if(currentBlock.type().equals("Empty")){ //death thing
     player.fall();
     MODE = DEATH;
   }
-  if(MODE == DEATH){
+  if(player.getY() <= 550 && MODE == DEATH){
     deathImage.resize(width, height);
     image(deathImage, 0, 0);
     fill(255, 255, 255);

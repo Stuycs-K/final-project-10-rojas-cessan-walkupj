@@ -21,6 +21,13 @@ class Player{
     return location[1];
   }
   
+  public void setX(int x){
+    location[0] = x;
+  }
+  public void setY(int y){
+    location[1] = y;
+  }
+  
   public void drawPlayer(){ //placeholder for image
     if(left){
       leftImage.resize(pwidth, pheight);
@@ -80,7 +87,7 @@ class Player{
   }
   
   public void fall(){
-    location[1] = 0;
+    location[1] += 50;
   }
 
 }
