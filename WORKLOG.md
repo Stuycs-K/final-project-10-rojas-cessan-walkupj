@@ -73,3 +73,7 @@ Worked on gravity to make Sonny fall
 
 GRAVITY WORKS!!! demoable stage reached!
 added death screen and way to return to map
+
+### 6/6
+
+added a get and set method, and also type to blocks"
