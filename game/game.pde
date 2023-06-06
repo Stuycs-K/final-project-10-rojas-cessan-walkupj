@@ -102,20 +102,22 @@ void draw(){
     if (keyboardInput.isPressed(Controller.P1_UP)) {
       //player.walkUp();
     }
-    if (keyboardInput.isPressed(Controller.P1_DOWN)) {
-      player.walkDown();
-    }
+    //if (keyboardInput.isPressed(Controller.P1_DOWN)) {
+    //  player.walkDown();
+    //}
     //if player is at the end
    if (player.getX() > 900){
      MODE = MAP;
    } 
   }
-  Block currentBlock = currentRoom.getBlock((player.getX() - 25)/100, (player.getY() + 150)/100);
-  if(currentBlock.type().equals("Empty")){ //death thing
+  Block currentBlock = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
+  if(currentBlock.type().equals("Empty") || currentBlock.type().equals("Water")){ //death thing
     player.fall();
+  }
+  if(player.getY() >= 550){
     MODE = DEATH;
   }
-  if(player.getY() <= 550 && MODE == DEATH){
+  if(MODE == DEATH){
     deathImage.resize(width, height);
     image(deathImage, 0, 0);
     fill(255, 255, 255);

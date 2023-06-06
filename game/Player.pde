@@ -76,17 +76,18 @@ class Player{
     location[1] -= 50;  
   }
   
-  public void walkDown(){
-    if (location[1] < 0){
-      location[1] = 0;
-    }
-    if (location[1] > width-50){
-      location[1] = width-50;
-    }
-    location[1] += 50;  
-  }
+  //public void walkDown(){
+  //  if (location[1] < 0){
+  //    location[1] = 0;
+  //  }
+  //  if (location[1] > width-50){
+  //    location[1] = width-50;
+  //  }
+  //  location[1] += 50;  
+  //}
   
   public void fall(){
+    if(player.getY() > 650) player.setY(650);
     location[1] += 50;
   }
 
