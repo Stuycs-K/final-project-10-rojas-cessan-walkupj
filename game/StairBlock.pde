@@ -24,4 +24,7 @@ class StairBlock extends Block{
   public int getY(){
     return this.y;
   }
+  public boolean isEmpty(){
+    return false;
+  }
 }

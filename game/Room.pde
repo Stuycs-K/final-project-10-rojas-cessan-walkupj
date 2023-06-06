@@ -53,7 +53,7 @@ class Room{
   public void removeBlock(int r, int c){
     blockGrid[r][c] = null;
   }
-  public Block get(int r, int c){
+  public Block getBlock(int r, int c){
     return blockGrid[r][c];
   }
   public void drawRoom(){
@@ -84,6 +84,7 @@ class Room{
          currentRoom.addBlock(new EarthBlock(), i, 3);
        }
      }
+     text("Try pressing the WASD keys, dragging and dropping items, and be cautious!", 10, 70);
    }
    
    public void setupRoom1(){
@@ -98,7 +99,6 @@ class Room{
          currentRoom.addBlock(new EarthBlock(), i, 3);
        }
      }
-     text("Try pressing one or more of: WASD keys and drag and drop items, be cautious", 10, 70);
    }
    
    public void setupRoom2(){
