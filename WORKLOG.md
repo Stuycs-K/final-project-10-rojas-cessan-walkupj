@@ -82,3 +82,7 @@ added death screen and way to return to map
 ### 6/6
 
 added a get and set method, and also type to blocks"
+
+### 6/7
+
+added monsters that kill you!
