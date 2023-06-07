@@ -45,7 +45,7 @@ Planned out demo presentation with Jo over Zoom.
 
 ### 6/5
 
-Practiced demo presentation with Jo over Zoom.
+Practiced demo presentation with Jo over Zoom and discussed next steps.
 
 
 ## Jo
