@@ -20,4 +20,7 @@ class BridgeBlock extends Block{
   public boolean isEmpty(){
     return false;
   }
+  public String type(){
+    return "Bridge";
+  }
 }

@@ -23,4 +23,7 @@ class MonsterBlock extends Block{
   public boolean isEmpty(){
     return false;
   }
+  public String type(){
+    return "Monster";
+  }
 }
