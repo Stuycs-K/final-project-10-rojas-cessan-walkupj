@@ -96,6 +96,7 @@ class Room{
        }
      }
      fillWithEmpty();
+     currentRoom.addBlock(new MonsterBlock(), 3, 2);
      text("Try pressing the WASD keys, dragging and dropping items, and be cautious!", 10, 70);
    }
    
