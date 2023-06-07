@@ -110,11 +110,12 @@ void draw(){
      MODE = MAP;
    } 
   }
-  Block currentBlock = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
-  if(currentBlock.type().equals("Empty") || currentBlock.type().equals("Water")){ //death thing
-    player.fall();
-  }
-  if(player.getY() >= 550){
+  Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
+  String typeBelow = blockBelow.type();
+  Block blockOn = currentRoom.getBlock((player.getX()-20)/100, (player.getY()+75)/100);
+  String typeOn = blockOn.type();
+  println("typeOn = " + typeOn);
+  if(typeOn.equals("Monster")){
     MODE = DEATH;
   }
   if(MODE == DEATH){
@@ -123,6 +124,12 @@ void draw(){
     fill(255, 255, 255);
     text("press shift to return to the map and try again", 50, 50);
     if(keyboardInput.isPressed(Controller.SHIFT_KEY)) MODE = MAP;
+  }
+  if(typeBelow.equals("Empty") || typeBelow.equals("Water")){ //death thing
+    player.fall();
+  }
+  if(player.getY() >= 550){
+    MODE = DEATH;
   }
   if (MODE == MAP){
     map.drawMap();
