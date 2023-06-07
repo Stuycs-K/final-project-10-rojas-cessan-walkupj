@@ -38,6 +38,23 @@ Experimenting with gravity and improved player movement in separate file
 Furthered platforming on separate files, now can interact with platforms, bugs with jumping
 Cleaned code and death by jump bug for demo
 
+
+### 6/4
+
+Planned out demo presentation with Jo over Zoom.
+
+### 6/5
+
+Practiced demo presentation with Jo over Zoom and discussed next steps.
+
+
+### 6/6
+
+Implementing being able to walk up stairs. 
+Designed room 3 so you can test stairs.
+Organized background images into a folder.
+
+
 ## Jo
 
 ### 5/23
