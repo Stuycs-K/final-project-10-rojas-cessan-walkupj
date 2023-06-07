@@ -38,6 +38,16 @@ Experimenting with gravity and improved player movement in separate file
 Furthered platforming on separate files, now can interact with platforms, bugs with jumping
 Cleaned code and death by jump bug for demo
 
+
+### 6/4
+
+Planned out demo presentation with Jo over Zoom.
+
+### 6/5
+
+Practiced demo presentation with Jo over Zoom.
+
+
 ## Jo
 
 ### 5/23
