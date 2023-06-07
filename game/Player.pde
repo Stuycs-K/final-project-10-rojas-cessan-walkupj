@@ -76,7 +76,7 @@ class Player{
     if (location[1] > width-50){
       location[1] = width-50;
     }
-    location[1] -= 50;  
+    location[1] -= 100;  
   }
   
   //public void walkDown(){

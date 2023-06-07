@@ -34,6 +34,7 @@ void setup(){
   map.add(new Room(0));
   map.add(new Room(1));
   map.add(new Room(2));
+  map.add(new Room(3));
   currentRoom = map.get(currentRoomNumber);
   inventory = new Inventory();
   inventory.addToInventory(new BridgeBlock(), 0);
@@ -134,19 +135,25 @@ void draw(){
     map.drawMap();
     textSize(100);
     text("Map", 10, 70);
-    if (mousePressed == true && mouseX > 100 && mouseX < 200 && mouseY > 300 && mouseY < 400){
+    int x = width/4;
+    if (mousePressed == true && mouseX > x * 0 && mouseX < x * 0 + 100 && mouseY > 300 && mouseY < 400){
       MODE = WALK;
       currentRoomNumber= 0;
       setup();
     }
-     if (mousePressed == true && mouseX > 400 && mouseX < 500 && mouseY > 300 && mouseY < 400){
+     if (mousePressed == true && mouseX > x && mouseX < x + 100 && mouseY > 300 && mouseY < 400){
       MODE = WALK;
       currentRoomNumber= 1;
       setup();
     }
-     if (mousePressed == true && mouseX > 700 && mouseX < 800 && mouseY > 300 && mouseY < 400){
+     if (mousePressed == true && mouseX > x * 2 && mouseX < x * 2 + 100 && mouseY > 300 && mouseY < 400){
       MODE = WALK;
       currentRoomNumber= 2;
+      setup();
+    }
+    if (mousePressed == true && mouseX > x * 3 && mouseX < x * 3 + 100 && mouseY > 300 && mouseY < 400){
+      MODE = WALK;
+      currentRoomNumber= 3;
       setup();
     }
     

@@ -1,7 +1,7 @@
 class Room{
   private String name;
   private Block[][] blockGrid;
-  private PImage background = loadImage("fortniteBackground.jpeg");
+  private PImage background = loadImage("backgrounds/fortniteBackground.jpeg");
   private int roomNumber;
 
   public Room(int roomNumber){
@@ -75,13 +75,16 @@ class Room{
     if (roomNumber == 2){
       setupRoom2();           
     }
+    if (roomNumber == 3){
+      setupRoom3();           
+    }
     drawBlockGrid();
     
     textSize(55);
     text(getName(), 20, 50);
   }
   public void setupRoom0(){
-    background = loadImage("sunny.jpg");
+    background = loadImage("backgrounds/sunny.jpg");
     name = "Tutorial";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 10; i++){
@@ -97,7 +100,7 @@ class Room{
    }
    
    public void setupRoom1(){
-     background = loadImage("storm.jpg");
+     background = loadImage("backgrounds/storm.jpg");
      name = "Ahhh there's a storm a-coming";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 10; i++){
@@ -112,7 +115,7 @@ class Room{
    }
    
    public void setupRoom2(){
-     background = loadImage("hell.jpg");
+     background = loadImage("backgrounds/hell.jpg");
      name = "POV you forgot to say bless you when \n you sneezed";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 10; i++){
@@ -127,17 +130,17 @@ class Room{
    }
    
    public void setupRoom3(){
-     background = loadImage("hell.jpg");
+     background = loadImage("backgrounds/bluesky.jpg");
      name = "climb!";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 10; i++){
        currentRoom.addBlock(new WaterBlock(), i, 4);
      }
-     for (int i = 0; i < 6; i++){
+     for (int i = 0; i < 5; i++){
          currentRoom.addBlock(new EarthBlock(), i, 3);
      }
      for (int i = 6; i < 10; i++){
-         currentRoom.addBlock(new EarthBlock(), i, 4);
+         currentRoom.addBlock(new EarthBlock(), i, 2);
      }
      fillWithEmpty();
    }
@@ -146,17 +149,22 @@ class Room{
    public void drawRoomMap(){
      stroke(0);
      fill(255);
+     int x = width/4 * roomNumber;   //change this
       if (roomNumber == 0){
-         square(100, 300, 100);
-         text("0", 100, 300);
+         square(x, 300, 100);
+         text("0", x, 300);
       }
       if (roomNumber == 1){
-         square(400, 300, 100);
-         text("1", 400, 300);
+         square(x, 300, 100);
+         text("1", x, 300);
       }
       if (roomNumber == 2){
-         square(700, 300, 100);
-         text("2", 700, 300);
+         square(x, 300, 100);
+         text("2", x, 300);
+      }
+      if (roomNumber == 3){
+         square(x, 300, 100);
+         text("3", x, 300);
       }
    }
 
