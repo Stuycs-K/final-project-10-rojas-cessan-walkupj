@@ -89,6 +89,9 @@ void mouseReleased(){
 
 
 void draw(){
+  if (player.getY() >= 550){
+     MODE = DEATH;
+  }
   if (MODE == WALK){
     drawSetting();
     if (keyboardInput.isPressed(Controller.P1_LEFT)) {
@@ -102,9 +105,7 @@ void draw(){
     if (keyboardInput.isPressed(Controller.P1_UP)) {
       //player.walkUp();
     }
-    //if (keyboardInput.isPressed(Controller.P1_DOWN)) {
-    //  player.walkDown();
-    //}
+
     //if player is at the end
    if (player.getX() > 900){
      MODE = MAP;
@@ -114,10 +115,14 @@ void draw(){
   if(currentBlock.type().equals("Empty") || currentBlock.type().equals("Water")){ //death thing
     player.fall();
   }
-  if (player.getY() <= 0){
-     MODE = DEATH;
-
+  System.out.println(currentBlock.type());
+  if(currentBlock.type().equals("Stair")){ 
+    player.onStairs("true");
   }
+  if(!currentBlock.type().equals("Stair")){ 
+    player.onStairs("false");
+  }
+  
   if(MODE == DEATH){
     deathImage.resize(width, height);
     image(deathImage, 0, 0);

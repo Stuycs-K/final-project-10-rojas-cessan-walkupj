@@ -116,12 +116,28 @@ class Room{
      name = "POV you forgot to say bless you when \n you sneezed";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 10; i++){
-       currentRoom.addBlock(new WaterBlock(), i, 4);
+       currentRoom.addBlock(new MonsterBlock(), i, 4);
      }
      for (int i = 0; i < 10; i++){
        if (i != 2 && i != 4 && i != 6){
          currentRoom.addBlock(new EarthBlock(), i, 3);
        }
+     }
+     fillWithEmpty();
+   }
+   
+   public void setupRoom3(){
+     background = loadImage("hell.jpg");
+     name = "climb!";
+     image(background, 0, 0, 1000, 600);
+     for (int i = 0; i < 10; i++){
+       currentRoom.addBlock(new WaterBlock(), i, 4);
+     }
+     for (int i = 0; i < 6; i++){
+         currentRoom.addBlock(new EarthBlock(), i, 3);
+     }
+     for (int i = 6; i < 10; i++){
+         currentRoom.addBlock(new EarthBlock(), i, 4);
      }
      fillWithEmpty();
    }

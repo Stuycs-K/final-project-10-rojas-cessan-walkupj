@@ -5,7 +5,7 @@ class Player{
   private int health;
   private int pheight = 150;
   private int pwidth = 75;
-  private boolean left;
+  private boolean left, isOnStairs;
   private int[] location;
   //private Inventory inventory;
   //150 tall, 100 across
@@ -63,7 +63,10 @@ class Player{
     if (location[0] > width-50){
       location[0] = width-50;
     }
-      location[0] += 25;  
+      location[0] += 25; 
+     if (isOnStairs){
+       walkUp();
+     }
   }
   
   public void walkUp(){
@@ -90,7 +93,12 @@ class Player{
 
     if(player.getY() > 650) player.setY(650);
 
-    location[1] += 50;
+    location[1] += 25;
+  }
+  
+  public void onStairs(String bool){
+    if (bool.equals("true")) isOnStairs = true;
+    if (bool.equals("false")) isOnStairs = false;
   }
 
 }
