@@ -116,12 +116,7 @@ void draw(){
   if(currentBlock.type().equals("Empty") || currentBlock.type().equals("Water")){ //death thing
     player.fall();
   }
-  System.out.println(currentBlock.type());
-  if(currentBlock.type().equals("Stair")){ 
-    player.onStairs("true");
-  }
-  if(!currentBlock.type().equals("Stair")){ 
-    player.onStairs("false");
+ 
 
   Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
   String typeBelow = blockBelow.type();
@@ -130,6 +125,9 @@ void draw(){
   println("typeOn = " + typeOn);
   if(typeOn.equals("Monster")){
     MODE = DEATH;
+  }
+  if(typeOn.equals("Stair")){
+    player.onStairs("true");
   }
   
   if(MODE == DEATH){
