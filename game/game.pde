@@ -106,7 +106,6 @@ void draw(){
     if (keyboardInput.isPressed(Controller.P1_UP)) {
       //player.walkUp();
     }
-
     //if player is at the end
    if (player.getX() > 900){
      MODE = MAP;
