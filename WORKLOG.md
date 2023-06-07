@@ -48,6 +48,13 @@ Planned out demo presentation with Jo over Zoom.
 Practiced demo presentation with Jo over Zoom and discussed next steps.
 
 
+### 6/6
+
+Implementing being able to walk up stairs. 
+Designed room 3 so you can test stairs.
+Organized background images into a folder.
+
+
 ## Jo
 
 ### 5/23
