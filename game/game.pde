@@ -16,7 +16,6 @@ private static final int MAP = 1;
 private static final int DEATH = 2;
 Controller keyboardInput;
 
-
 void keyPressed() {
   keyboardInput.press(keyCode);
 }
@@ -66,7 +65,6 @@ void mousePressed(){
 
 
 void mouseReleased(){
-
   if(initMouseY < 500 && mouseY >= 500){ // room to inv
     inventoryFromMouse = mouseX / 100;
     inventory.addToInventory(currentRoom.getBlock(initMouseX / 100, initMouseY / 100), inventoryFromMouse);
@@ -93,6 +91,9 @@ void draw(){
   if (player.getY() >= 550){
      MODE = DEATH;
   }
+  if (player.getX() > 900){
+     MODE = MAP;
+  } 
   if (MODE == WALK){
     drawSetting();
     if (keyboardInput.isPressed(Controller.P1_LEFT)) {
@@ -106,10 +107,6 @@ void draw(){
     if (keyboardInput.isPressed(Controller.P1_UP)) {
       //player.walkUp();
     }
-    //if player is at the end
-   if (player.getX() > 900){
-     MODE = MAP;
-   } 
   }
 
   Block currentBlock = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
@@ -117,13 +114,12 @@ void draw(){
     player.fall();
   }
  
-
   Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
   String typeBelow = blockBelow.type();
   Block blockOn = currentRoom.getBlock((player.getX()-20)/100, (player.getY()+75)/100);
   String typeOn = blockOn.type();
-  println("typeOn = " + typeOn);
-  if(typeOn.equals("Monster")){
+  //println("typeOn = " + typeOn);
+  if(typeOn.equals("Monster")||typeBelow.equals("Monster")){
     MODE = DEATH;
   }
   if(typeOn.equals("Stair")){
@@ -171,7 +167,6 @@ void draw(){
       currentRoomNumber= 3;
       setup();
     }
-    
   }
   fill(0);
 }

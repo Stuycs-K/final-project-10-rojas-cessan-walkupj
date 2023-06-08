@@ -2,7 +2,6 @@ class Player{
   private String name;
   private PImage leftImage = loadImage("blockImages/playerLeft.png");
   private PImage rightImage = loadImage("blockImages/playerRight.png");
-  private int health;
   private int pheight = 150;
   private int pwidth = 75;
   private boolean left, isOnStairs;
@@ -78,16 +77,6 @@ class Player{
     }
     location[1] -= 100;  
   }
-  
-  //public void walkDown(){
-  //  if (location[1] < 0){
-  //    location[1] = 0;
-  //  }
-  //  if (location[1] > width-50){
-  //    location[1] = width-50;
-  //  }
-  //  location[1] += 50;  
-  //}
   
   public void fall(){
 
