@@ -129,6 +129,9 @@ void draw(){
   if(typeOn.equals("Stair")){
     player.onStairs("true");
   }
+  if(!typeOn.equals("Stair")){
+    player.onStairs("false");
+  }
   
   if(MODE == DEATH){
     deathImage.resize(width, height);
