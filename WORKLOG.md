@@ -56,7 +56,7 @@ Organized background images into a folder.
 
 ### 6/7
 
-Working on walking up stairs and simplyfying draw
+Working on walking up stairs, simplyfying draw, and debugging rooms.
 
 
 ## Jo
