@@ -54,6 +54,10 @@ Implementing being able to walk up stairs.
 Designed room 3 so you can test stairs.
 Organized background images into a folder.
 
+### 6/7
+
+Working on walking up stairs and simplyfying draw
+
 
 ## Jo
 
