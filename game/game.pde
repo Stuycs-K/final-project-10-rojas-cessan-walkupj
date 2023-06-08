@@ -5,7 +5,7 @@ private Room currentRoom;
 private Inventory inventory;
 private Player player; 
 private PImage deathImage;
-private int MODE; 
+private int MODE = 0; 
 private int inventoryFromMouse;
 private int initMouseY;
 private int initMouseX;
@@ -26,8 +26,7 @@ void keyReleased() {
 
 
 void setup(){
-  frameRate(10);
-  MODE = 0;
+  frameRate(60);
   size(1000, 650);
   map = new Map();
   map.add(new Room(0));
@@ -88,13 +87,7 @@ void mouseReleased(){
 
 
 void draw(){
-  if (player.getY() >= 550){
-     MODE = DEATH;
-  }
-  if (player.getX() > 900){
-     MODE = MAP;
-  } 
-  if (MODE == WALK){
+  if (MODE == WALK){ ////////////////////////////////////////////////////////////////////////
     drawSetting();
     if (keyboardInput.isPressed(Controller.P1_LEFT)) {
       player.left = true;
@@ -104,71 +97,67 @@ void draw(){
       player.left = false;
       player.walkRight();
     }
-    if (keyboardInput.isPressed(Controller.P1_UP)) {
+    //if (keyboardInput.isPressed(Controller.P1_UP)) {
       //player.walkUp();
+    //}
+    if (player.getX() > 900){
+     MODE = MAP;
+    } 
+    Block currentBlock = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
+    Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
+    String typeBelow = blockBelow.type();
+    Block blockOn = currentRoom.getBlock((player.getX()-20)/100, (player.getY()+75)/100);
+    String typeOn = blockOn.type();
+    if(typeOn.equals("Monster")||typeBelow.equals("Monster")){
+      MODE = DEATH;
     }
-  }
+    if(typeOn.equals("Stair")){
+      player.onStairs("true");
+    }
+    if(!typeOn.equals("Stair")){
+      player.onStairs("false");
+    }
+    if(typeBelow.equals("Empty") || typeBelow.equals("Water")){ //death thing
+      player.fall();
+    }
+    if(player.getY() >= 550){
+      MODE = DEATH;
+    }
+  } ////////////////////////////////////////////////////////////////////////
 
-  Block currentBlock = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
-  if(currentBlock.type().equals("Empty") || currentBlock.type().equals("Water")){ //death thing
-    player.fall();
-  }
- 
-  Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
-  String typeBelow = blockBelow.type();
-  Block blockOn = currentRoom.getBlock((player.getX()-20)/100, (player.getY()+75)/100);
-  String typeOn = blockOn.type();
-  //println("typeOn = " + typeOn);
-  if(typeOn.equals("Monster")||typeBelow.equals("Monster")){
-    MODE = DEATH;
-  }
-  if(typeOn.equals("Stair")){
-    player.onStairs("true");
-  }
-  if(!typeOn.equals("Stair")){
-    player.onStairs("false");
-  }
   
-  if(MODE == DEATH){
+  else if(MODE == DEATH){ ////////////////////////////////////////////////////////////////////////
     deathImage.resize(width, height);
     image(deathImage, 0, 0);
     fill(255, 255, 255);
     text("press shift to return to the map and try again", 50, 50);
     if(keyboardInput.isPressed(Controller.SHIFT_KEY)) MODE = MAP;
-  }
-  if(typeBelow.equals("Empty") || typeBelow.equals("Water")){ //death thing
-    player.fall();
-  }
-  if(player.getY() >= 550){
-    MODE = DEATH;
-  }
-  if (MODE == MAP){
+  } ////////////////////////////////////////////////////////////////////////
+  
+  else if (MODE == MAP){
     map.drawMap();
-    textSize(100);
-    text("Map", 10, 70);
     int x = width/4;
     if (mousePressed == true && mouseX > x * 0 && mouseX < x * 0 + 100 && mouseY > 300 && mouseY < 400){
       MODE = WALK;
       currentRoomNumber= 0;
       setup();
     }
-     if (mousePressed == true && mouseX > x && mouseX < x + 100 && mouseY > 300 && mouseY < 400){
+     else if (mousePressed == true && mouseX > x && mouseX < x + 100 && mouseY > 300 && mouseY < 400){
       MODE = WALK;
       currentRoomNumber= 1;
       setup();
     }
-     if (mousePressed == true && mouseX > x * 2 && mouseX < x * 2 + 100 && mouseY > 300 && mouseY < 400){
+     else if (mousePressed == true && mouseX > x * 2 && mouseX < x * 2 + 100 && mouseY > 300 && mouseY < 400){
       MODE = WALK;
       currentRoomNumber= 2;
       setup();
     }
-    if (mousePressed == true && mouseX > x * 3 && mouseX < x * 3 + 100 && mouseY > 300 && mouseY < 400){
+    else if (mousePressed == true && mouseX > x * 3 && mouseX < x * 3 + 100 && mouseY > 300 && mouseY < 400){
       MODE = WALK;
       currentRoomNumber= 3;
       setup();
     }
   }
-  fill(0);
 }
 
 public void drawSetting(){

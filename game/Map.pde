@@ -21,6 +21,8 @@ class Map{
      for (Room room : timeline){
         room.drawRoomMap();
      }
+     textSize(100);
+     text("Map", 10, 70);
    }
    
   
