@@ -58,6 +58,12 @@ Organized background images into a folder.
 
 Working on walking up stairs, simplyfying draw, and debugging rooms.
 
+### 6/8
+
+Designed room 4
+Replaced Controller with switch to make draw faster. 
+Other smaller edits to make draw faster. 
+
 
 ## Jo
 
