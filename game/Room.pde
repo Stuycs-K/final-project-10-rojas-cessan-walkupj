@@ -3,12 +3,22 @@ class Room{
   private Block[][] blockGrid;
   private PImage background = loadImage("backgrounds/fortniteBackground.jpeg");
   private int roomNumber;
+  private boolean done = false;
 
   public Room(int roomNumber){
     blockGrid = new Block[10][10];
     this.roomNumber = roomNumber;
     
   }
+  
+  public boolean getStatus(){ //tells u if room is done (true)or not (f)
+    return done;
+  }
+  
+  public void changeStatus(){ //room is done
+    done = true;
+  }
+    
   
   public int getNum(){
     return roomNumber;
@@ -99,7 +109,7 @@ class Room{
        }
      }
      fillWithEmpty();
-     currentRoom.addBlock(new MonsterBlock(), 3, 2);
+     //currentRoom.addBlock(new MonsterBlock(), 3, 2);
      text("Try pressing the WASD keys, dragging and dropping items, and be cautious!", 10, 70);
    }
    

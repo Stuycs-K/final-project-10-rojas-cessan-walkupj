@@ -26,7 +26,7 @@ void keyPressed() {
       right = true;
       break;    
     case SHIFT: 
-      MODE = MAP;
+      if (MODE == DEATH) MODE = MAP;
       break;
   }
 }
@@ -107,13 +107,14 @@ void mouseReleased(){
 void draw(){
   if (MODE == WALK){ ////////////////////////////////////////////////////////////////////////
     drawSetting();
-    if (player.getX() > 900){
-     MODE = MAP;
-    } 
     Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
     String typeBelow = blockBelow.type();
     Block blockOn = currentRoom.getBlock((player.getX()-20)/100, (player.getY()+75)/100);
     String typeOn = blockOn.type();
+    if (player.getX() > 900){
+     MODE = MAP;
+     currentRoom.changeStatus();
+    } 
     if(typeOn.equals("Monster")||typeBelow.equals("Monster")){
       MODE = DEATH;
     }
@@ -140,6 +141,7 @@ void draw(){
   
   else if (MODE == MAP){////////////////////////////////////////////////////////////////////////
     map.drawMap();
+    println(map.get(0).getStatus());
     int x = width/map.size();  
     if (mouseY > 300 && mouseY < 400){
       if (mousePressed == true && mouseX > 0 && mouseX < 100){
@@ -147,22 +149,23 @@ void draw(){
         currentRoomNumber= 0;
         setup();
       }
-       else if (mousePressed == true && mouseX > x && mouseX < x + 100){
+      
+       else if (mousePressed == true && mouseX > x && mouseX < x + 100 && map.get(0).getStatus()){
         MODE = WALK;
         currentRoomNumber= 1;
         setup();
       }
-       else if (mousePressed == true && mouseX > x * 2 && mouseX < x * 2 + 100){
+       else if (mousePressed == true && mouseX > x * 2 && mouseX < x * 2 + 100 && map.get(1).getStatus()){
         MODE = WALK;
         currentRoomNumber= 2;
         setup();
       }
-      else if (mousePressed == true && mouseX > x * 3 && mouseX < x * 3 + 100){
+      else if (mousePressed == true && mouseX > x * 3 && mouseX < x * 3 + 100 && map.get(2).getStatus()){
         MODE = WALK;
         currentRoomNumber= 3;
         setup();
       }
-      else if (mousePressed == true && mouseX > x * 4 && mouseX < x * 4 + 100){
+      else if (mousePressed == true && mouseX > x * 4 && mouseX < x * 4 + 100 && map.get(3).getStatus()){
         MODE = WALK;
         currentRoomNumber= 4;
         setup();
