@@ -36,12 +36,13 @@ void setup(){
   map.add(new Room(3));
   currentRoom = map.get(currentRoomNumber);
   inventory = new Inventory();
-  inventory.addToInventory(new BridgeBlock(), 0);
-  inventory.addToInventory(new BridgeBlock(), 1);
-  inventory.addToInventory(new BridgeBlock(), 2);
-  inventory.addToInventory(new BridgeBlock(), 3);
-  inventory.addToInventory(new BridgeBlock(), 4);
-  inventory.addToInventory(new StairBlock(), 5);
+  //inventory.addToInventory(new BridgeBlock(), 0);
+  //inventory.addToInventory(new BridgeBlock(), 1);
+  //inventory.addToInventory(new BridgeBlock(), 2);
+  //inventory.addToInventory(new BridgeBlock(), 3);
+  //inventory.addToInventory(new BridgeBlock(), 4);
+  //inventory.addToInventory(new StairBlock(), 5);
+  inventory.setupInventory(new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new StairBlock(), null, null, null, null);
   player = new Player();
   keyboardInput = new Controller();
   deathImage = loadImage("blockImages/youDied.jpg");
@@ -150,21 +151,25 @@ void draw(){
     if (mousePressed == true && mouseX > x * 0 && mouseX < x * 0 + 100 && mouseY > 300 && mouseY < 400){
       MODE = WALK;
       currentRoomNumber= 0;
+      //inventory.resetInventory();
       setup();
     }
-     if (mousePressed == true && mouseX > x && mouseX < x + 100 && mouseY > 300 && mouseY < 400){
+    if (mousePressed == true && mouseX > x && mouseX < x + 100 && mouseY > 300 && mouseY < 400){
       MODE = WALK;
       currentRoomNumber= 1;
+      //inventory.resetInventory();
       setup();
     }
-     if (mousePressed == true && mouseX > x * 2 && mouseX < x * 2 + 100 && mouseY > 300 && mouseY < 400){
+    if (mousePressed == true && mouseX > x * 2 && mouseX < x * 2 + 100 && mouseY > 300 && mouseY < 400){
       MODE = WALK;
       currentRoomNumber= 2;
+      //inventory.resetInventory();
       setup();
     }
     if (mousePressed == true && mouseX > x * 3 && mouseX < x * 3 + 100 && mouseY > 300 && mouseY < 400){
       MODE = WALK;
       currentRoomNumber= 3;
+      //inventory.resetInventory();
       setup();
     }
   }
