@@ -14,14 +14,32 @@ private int roomCFromMouse;
 private static final int WALK = 0;
 private static final int MAP = 1;
 private static final int DEATH = 2;
-Controller keyboardInput;
+private boolean left = false;
+private boolean right = false;
 
 void keyPressed() {
-  keyboardInput.press(keyCode);
+  switch (keyCode){
+    case 'A': //left
+      left = true;
+      break;
+    case 'D': //right
+      right = true;
+      break;    
+    case SHIFT: 
+      MODE = MAP;
+      break;
+  }
 }
 
 void keyReleased() {
-  keyboardInput.release(keyCode);
+  switch (keyCode){
+    case 'A': 
+      left = false;
+      break;
+    case 'D': 
+      right = false;
+      break;
+  }
 }
 
 
@@ -43,7 +61,6 @@ void setup(){
   inventory.addToInventory(new BridgeBlock(), 4);
   inventory.addToInventory(new StairBlock(), 5);
   player = new Player();
-  keyboardInput = new Controller();
   deathImage = loadImage("blockImages/youDied.jpg");
   drawSetting();
 }
@@ -90,21 +107,9 @@ void mouseReleased(){
 void draw(){
   if (MODE == WALK){ ////////////////////////////////////////////////////////////////////////
     drawSetting();
-    if (keyboardInput.isPressed(Controller.P1_LEFT)) {
-      player.left = true;
-      player.walkLeft();
-    }
-    if (keyboardInput.isPressed(Controller.P1_RIGHT)) {
-      player.left = false;
-      player.walkRight();
-    }
-    //if (keyboardInput.isPressed(Controller.P1_UP)) {
-      //player.walkUp();
-    //}
     if (player.getX() > 900){
      MODE = MAP;
     } 
-    Block currentBlock = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
     Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
     String typeBelow = blockBelow.type();
     Block blockOn = currentRoom.getBlock((player.getX()-20)/100, (player.getY()+75)/100);
@@ -124,20 +129,18 @@ void draw(){
     if(player.getY() >= 550){
       MODE = DEATH;
     }
-  } ////////////////////////////////////////////////////////////////////////
-
+  } 
   
   else if(MODE == DEATH){ ////////////////////////////////////////////////////////////////////////
     deathImage.resize(width, height);
     image(deathImage, 0, 0);
     fill(255, 255, 255);
     text("press shift to return to the map and try again", 50, 50);
-    if(keyboardInput.isPressed(Controller.SHIFT_KEY)) MODE = MAP;
-  } ////////////////////////////////////////////////////////////////////////
+  } 
   
-  else if (MODE == MAP){
+  else if (MODE == MAP){////////////////////////////////////////////////////////////////////////
     map.drawMap();
-    int x = width/5;  //change this
+    int x = width/map.size();  
     if (mouseY > 300 && mouseY < 400){
       if (mousePressed == true && mouseX > 0 && mouseX < 100){
         MODE = WALK;
