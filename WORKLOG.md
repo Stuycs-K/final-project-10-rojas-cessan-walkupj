@@ -3,15 +3,15 @@
 ## Nelli
 
 ### 5/23
-Started Inventory, Map, Player, and Room classes on java files
+Started Inventory, Map, Player, and Room classes on java files.
 
 ### 5/24
 
-Established main game interface, walk mode (left and right), and setting in draw
+Established main game interface, walk mode (left and right), and setting in draw.
 
 ### 5/25
 
-Drawing blocks in a room and loading background images
+Drawing blocks in a room and loading background images.
 
 ### 5/26
 
@@ -21,7 +21,7 @@ Drawing blocks in a room finished and designed room0.
 
 Finished designing room0, room1, and room2.
 Experiencing issues with player deaths.
-Designing Map mode
+Designing Map mode.
 
 ### 5/30
 
@@ -30,13 +30,13 @@ Cleaned up obsolete code such as decisionValue for Rooms and EmptyBlock.
 
 ### 5/31
 
-Submitted current game to demo branch
-Experimenting with gravity and improved player movement in separate file
+Submitted current game to demo branch.
+Experimenting with gravity and improved player movement in separate file.
 
 ### 6/1
 
-Furthered platforming on separate files, now can interact with platforms, bugs with jumping
-Cleaned code and death by jump bug for demo
+Furthered platforming on separate files, now can interact with platforms, bugs with jumping.
+Cleaned code and death by jump bug for demo.
 
 
 ### 6/4
@@ -60,9 +60,9 @@ Working on walking up stairs, simplyfying draw, and debugging rooms.
 
 ### 6/8
 
-Designed room 4
+Designed room 4.
 Replaced Controller with switch to make draw faster. 
-Other smaller edits to make draw faster. 
+Other smaller edits to make draw faster and implementing new rooms more easier. 
 
 
 ## Jo
