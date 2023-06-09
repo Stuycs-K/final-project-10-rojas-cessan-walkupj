@@ -50,7 +50,7 @@ Practiced demo presentation with Jo over Zoom and discussed next steps.
 
 ### 6/6
 
-Implementing being able to walk up stairs. 
+Implementing being able to walk up stairs.
 Designed room 3 so you can test stairs.
 Organized background images into a folder.
 
@@ -103,3 +103,7 @@ added a get and set method, and also type to blocks"
 ### 6/7
 
 added monsters that kill you!
+
+### 6/8
+
+added a setup and reset method for inventory and tested more
