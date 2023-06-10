@@ -4,7 +4,7 @@ class Player{
   private PImage rightImage = loadImage("blockImages/playerRight.png");
   private int pheight = 150;
   private int pwidth = 75;
-  private boolean left, isOnStairs;
+  private boolean Pleft, isOnStairs;
   private int[] location;
   //private Inventory inventory;
   //150 tall, 100 across
@@ -27,8 +27,20 @@ class Player{
     location[1] = y;
   }
   
+  public void updatePosition (){
+    if (right){
+      Pleft = false;
+      player.walkRight();
+    }
+    else if (left){
+      Pleft = true;
+      player.walkLeft();
+    }
+  }
+  
   public void drawPlayer(){ //placeholder for image
-    if(left){
+  updatePosition();
+    if(Pleft){
       leftImage.resize(pwidth, pheight);
       image(leftImage, location[0], location[1]);
     }
@@ -38,13 +50,6 @@ class Player{
     }
   }
   
-  //public void drawPlayerLeft(){ //placeholder for image
-  //  image(leftImage, location[0], location[1]);
-  //}
-  
-  //  public void drawPlayerRight(){ //placeholder for image
-  //  image(rightImage, location[0], location[1]);
-  //}
   
   public void walkLeft(){
     if (location[0] < 0){

@@ -16,11 +16,18 @@ class Map{
    public Room get (int index){
      return timeline.get(index);
    }
+   
+   public int size(){
+     return timeline.size();
+   }
+   
    public void drawMap(){
      background(0);
      for (Room room : timeline){
         room.drawRoomMap();
      }
+     textSize(100);
+     text("Map", 10, 70);
    }
    
   

@@ -3,12 +3,22 @@ class Room{
   private Block[][] blockGrid;
   private PImage background = loadImage("backgrounds/fortniteBackground.jpeg");
   private int roomNumber;
+  private boolean done = false;
 
   public Room(int roomNumber){
     blockGrid = new Block[10][10];
     this.roomNumber = roomNumber;
     
   }
+  
+  public boolean getStatus(){ //tells u if room is done (true)or not (f)
+    return done;
+  }
+  
+  public void changeStatus(){ //room is done
+    done = true;
+  }
+    
   
   public int getNum(){
     return roomNumber;
@@ -69,14 +79,17 @@ class Room{
     if (roomNumber == 0){
       setupRoom0();           
     }
-    if (roomNumber == 1){
+    else if (roomNumber == 1){
       setupRoom1();           
     }
-    if (roomNumber == 2){
+    else if (roomNumber == 2){
       setupRoom2();           
     }
-    if (roomNumber == 3){
+    else if (roomNumber == 3){
       setupRoom3();           
+    }
+    else if (roomNumber == 4){
+      setupRoom4();           
     }
     drawBlockGrid();
     
@@ -134,13 +147,25 @@ class Room{
      background = loadImage("backgrounds/bluesky.jpg");
      name = "climb!";
      image(background, 0, 0, 1000, 600);
-     for (int i = 0; i < 10; i++){
-       currentRoom.addBlock(new WaterBlock(), i, 4);
-     }
      for (int i = 0; i < 6; i++){
          currentRoom.addBlock(new EarthBlock(), i, 3);
      }
      for (int i = 6; i < 10; i++){
+         currentRoom.addBlock(new EarthBlock(), i, 2);
+     }
+     fillWithEmpty();
+   }
+   
+   public void setupRoom4(){
+     background = loadImage("backgrounds/bluesky.jpg");
+     name = "what to do what to do...";
+     image(background, 0, 0, 1000, 600);
+     for (int i = 0; i < 6; i++){
+         if (i != 2 && i != 4 && i != 6){
+         currentRoom.addBlock(new EarthBlock(), i, 3);
+       }
+     }
+     for (int i = 7; i < 10; i++){
          currentRoom.addBlock(new EarthBlock(), i, 2);
      }
      fillWithEmpty();
@@ -150,7 +175,7 @@ class Room{
    public void drawRoomMap(){
      stroke(0);
      fill(255);
-     int x = width/4 * roomNumber;   //change this
+     int x = width/5 * roomNumber;   //change this
       if (roomNumber == 0){
          square(x, 300, 100);
          text("0", x, 300);
@@ -166,6 +191,10 @@ class Room{
       if (roomNumber == 3){
          square(x, 300, 100);
          text("3", x, 300);
+      }
+      if (roomNumber == 4){
+         square(x, 300, 100);
+         text("4", x, 300);
       }
    }
 
