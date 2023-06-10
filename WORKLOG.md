@@ -61,8 +61,8 @@ Working on walking up stairs, simplyfying draw, and debugging rooms.
 ### 6/8
 
 Designed room 4.
-Replaced Controller with switch to make draw faster. 
-Other smaller edits to make draw faster and implementing new rooms more easier. 
+Replaced Controller with switch to make draw faster.
+Other smaller edits to make draw faster and implementing new rooms more easier.
 
 
 ## Jo
@@ -117,3 +117,7 @@ added monsters that kill you!
 ### 6/8
 
 added a setup and reset method for inventory and tested more
+
+### 6/9
+
+fixed weird inventory issues! currently resets after each level
