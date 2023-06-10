@@ -64,6 +64,10 @@ Designed room 4.
 Replaced Controller with switch to make draw faster.
 Other smaller edits to make draw faster and implementing new rooms more easier.
 
+### 6/9
+
+Levels now need to be unlocked in order, there are bugs with redoing levels though.
+
 
 ## Jo
 
