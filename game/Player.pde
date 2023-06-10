@@ -6,11 +6,12 @@ class Player{
   private int pwidth = 75;
   private boolean Pleft, isOnStairs;
   private int[] location;
-  //private Inventory inventory;
+  public Inventory inventory;
   //150 tall, 100 across
   public Player(){
      name = "Sonny";
      location = new int[]{0,160};
+     inventory = new Inventory();
   }
   
   public int getX(){
