@@ -70,7 +70,7 @@ Levels now need to be unlocked in order, there are bugs with redoing levels thou
 
 ### 6/10
 
-Simplified setup, fixed all the setup calls in draw, and filled out the ReadMe file.
+Simplified setup, fixed all the setup calls in draw, and filled out the ReadMe file. Designed and implemented room 5 and 6.
 
 ## Jo
 
