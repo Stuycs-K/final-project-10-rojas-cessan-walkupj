@@ -125,3 +125,7 @@ added a setup and reset method for inventory and tested more
 ### 6/9
 
 fixed weird inventory issues! currently resets after each level
+
+### 6/10
+
+Inventory does not reset after each level, instead once you use a block in one level it stays there and does not go back to inventory.
