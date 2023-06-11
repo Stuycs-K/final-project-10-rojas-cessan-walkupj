@@ -31,6 +31,7 @@ class Map{
         room.drawRoomMap();
      }
      textSize(100);
+     fill(255);
      text("Map", 10, 70);
    }
    

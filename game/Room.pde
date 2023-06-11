@@ -3,7 +3,7 @@ class Room{
   private Block[][] blockGrid;
   private PImage background = loadImage("backgrounds/fortniteBackground.jpeg");
   private int roomNumber;
-  private boolean done = true;
+  private boolean done = false;
 
   public Room(int roomNumber){
     blockGrid = new Block[10][10];
@@ -196,7 +196,10 @@ class Room{
    
    public void drawRoomMap(){
      stroke(0);
-     fill(255);
+     fill(100);
+     if (getStatus() == false){
+       fill(255);
+     }
      int x = width/7 * roomNumber;   //change this
       if (roomNumber == 0){
          square(x, 300, 100);
