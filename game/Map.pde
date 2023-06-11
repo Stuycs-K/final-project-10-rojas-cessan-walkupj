@@ -7,16 +7,15 @@ class Map{
 
    public Map(){
      timeline = new ArrayList<Room>();
-     add(new Room(0));
-     add(new Room(1));
-     add(new Room(2));
-     add(new Room(3));
-     add(new Room(4));
+     timeline.add(new Room(0));
+     timeline.add(new Room(1));
+     timeline.add(new Room(2));
+     timeline.add(new Room(3));
+     timeline.add(new Room(4));
+     timeline.add(new Room(5));
+     timeline.add(new Room(6));
    }
    
-   public void add(Room room){
-     timeline.add(room);
-   }
    
    public Room get (int index){
      return timeline.get(index);
