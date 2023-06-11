@@ -7,6 +7,11 @@ class Map{
 
    public Map(){
      timeline = new ArrayList<Room>();
+     add(new Room(0));
+     add(new Room(1));
+     add(new Room(2));
+     add(new Room(3));
+     add(new Room(4));
    }
    
    public void add(Room room){
