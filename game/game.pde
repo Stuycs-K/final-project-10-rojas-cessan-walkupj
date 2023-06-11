@@ -50,10 +50,7 @@ void setup(){
   size(1000, 650);
   map = new Map();
   currentRoom = map.get(currentRoomNumber);
-<<<<<<< HEAD
   inventory = new Inventory();
-=======
->>>>>>> origin/nelli
   player = new Player();
   if(currentRoomNumber == 0){
     inventory.setupInventory(new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new StairBlock(), null, null, null, null);
@@ -122,7 +119,7 @@ void mouseReleased(){
 
 
 void draw(){
-  println(MODE);
+  //println(MODE);
   if (MODE == WALK){ ////////////////////////////////////////////////////////////////////////
     drawSetting();
     Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
