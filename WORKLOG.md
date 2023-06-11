@@ -68,6 +68,9 @@ Other smaller edits to make draw faster and implementing new rooms more easier.
 
 Levels now need to be unlocked in order, there are bugs with redoing levels though.
 
+### 6/10
+
+Simplified setup, fixed all the setup calls in draw, and filled out the ReadMe file.
 
 ## Jo
 
