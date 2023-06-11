@@ -2,8 +2,9 @@ import java.util.*;
 private Map map;
 private int currentRoomNumber = 0;
 private Room currentRoom;
-private Inventory inventory;
 private Player player; 
+private Inventory inventory;
+private Block[] inv = new Block[10];
 private PImage deathImage;
 private int MODE = 0; 
 private int inventoryFromMouse;
@@ -54,17 +55,26 @@ void setup(){
   map.add(new Room(3));
   map.add(new Room(4));
   currentRoom = map.get(currentRoomNumber);
-  //inventory = new Inventory();
-  //inventory.addToInventory(new BridgeBlock(), 0);
-  //inventory.addToInventory(new BridgeBlock(), 1);
-  //inventory.addToInventory(new BridgeBlock(), 2);
-  //inventory.addToInventory(new BridgeBlock(), 3);
-  //inventory.addToInventory(new BridgeBlock(), 4);
-  //inventory.addToInventory(new StairBlock(), 5);
-  //inventory.setupInventory(new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new StairBlock(), null, null, null, null);
+  inventory = new Inventory();
   player = new Player();
-  inventory = player.inventory;
-  inventory.setupInventory(new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new StairBlock(), null, null, null, null);
+  if(currentRoomNumber == 0){
+    inventory.setupInventory(new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new StairBlock(), null, null, null, null);
+    inv[0] = new BridgeBlock();
+    inv[1] = new BridgeBlock();
+    inv[2] = new BridgeBlock();
+    inv[3] = new BridgeBlock();
+    inv[4] = new BridgeBlock();
+    inv[5] = new StairBlock();
+    inv[6] = null;
+    inv[7] = null;
+    inv[8] = null;
+    inv[9] = null;
+  }
+  else{
+   for(int i = 0; i < 10; i++){
+    inventory.addToInventory(inv[i], i);
+   }
+  }
   deathImage = loadImage("blockImages/youDied.jpg");
   drawSetting();
 }
@@ -91,6 +101,7 @@ void mouseReleased(){
     if(initMouseY < 500 && mouseY >= 500){ // room to inv
       inventoryFromMouse = mouseX / 100;
       inventory.addToInventory(currentRoom.getBlock(initMouseX / 100, initMouseY / 100), inventoryFromMouse);
+      inv[inventoryFromMouse] = currentRoom.getBlock(initMouseX / 100, initMouseY / 100);
       currentRoom.removeBlock(initMouseX / 100, initMouseY / 100);
     }
     else if(initMouseY < 500 && mouseY < 500){ // room to room
@@ -104,6 +115,7 @@ void mouseReleased(){
       roomCFromMouse = mouseY / 100;
       currentRoom.addBlock(inventory.getItem(inventoryFromMouse), roomRFromMouse, roomCFromMouse);
       inventory.removeFromInventory(inventoryFromMouse);
+      inv[inventoryFromMouse] = null;
     }
   }
 }
@@ -148,7 +160,7 @@ void draw(){
   
   else if (MODE == MAP){////////////////////////////////////////////////////////////////////////
     map.drawMap();
-    println(map.get(0).getStatus());
+    //println(map.get(0).getStatus());
     int x = width/map.size();  
     if (mouseY > 300 && mouseY < 400){
       if (mousePressed == true && mouseX > 0 && mouseX < 100){

@@ -7,6 +7,32 @@ public class Inventory{
     initinventory = new Block[width/100];
   }
   
+  public Inventory(Block a, Block b, Block c, Block d, Block e, Block f, Block g, Block h, Block i, Block j){
+    inventory = new Block[width/100];
+    initinventory = new Block[width/100];
+    inventory[0] = a;
+    inventory[1] = b;
+    inventory[2] = c;
+    inventory[3] = d;
+    inventory[4] = e;
+    inventory[5] = f;
+    inventory[6] = g;
+    inventory[7] = h;
+    inventory[8] = i;
+    inventory[9] = j;
+    
+    initinventory[0] = a;
+    initinventory[1] = b;
+    initinventory[2] = c;
+    initinventory[3] = d;
+    initinventory[4] = e;
+    initinventory[5] = f;
+    initinventory[6] = g;
+    initinventory[7] = h;
+    initinventory[8] = i;
+    initinventory[9] = j;
+  }
+  
   public void drawInventory(){ //placeholder for image?
     fill(225, 200, 255);
     rect(0, 500, 1000, 150);
