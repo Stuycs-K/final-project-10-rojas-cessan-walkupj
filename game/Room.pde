@@ -3,7 +3,7 @@ class Room{
   private Block[][] blockGrid;
   private PImage background = loadImage("backgrounds/fortniteBackground.jpeg");
   private int roomNumber;
-  private boolean done = false;
+  private boolean done = true;
 
   public Room(int roomNumber){
     blockGrid = new Block[10][10];
@@ -33,16 +33,6 @@ class Room{
   
   public int[][] getHorizon(){
     int[][] horizonCoors = new int[10][2];
-    //int r = 0;
-    //for(int i = 0; i < blockGrid.length; i++){
-    //  for(int j = 0; j < blockGrid[i].length; j++){
-    //    if(thereIsBlock(i, j)){
-    //      horizonCoors[r][0] = i*100;
-    //      horizonCoors[r][1] = j*100;
-    //      r++;
-    //    }
-    //  }
-    //}
     return horizonCoors;
   }
   
@@ -90,6 +80,12 @@ class Room{
     }
     else if (roomNumber == 4){
       setupRoom4();           
+    }
+    else if (roomNumber == 5){
+      setupRoom5();           
+    }
+    else if (roomNumber == 6){
+      setupRoom6();           
     }
     drawBlockGrid();
     
@@ -157,11 +153,24 @@ class Room{
    }
    
    public void setupRoom4(){
-     background = loadImage("backgrounds/bluesky.jpg");
+     background = loadImage("backgrounds/ireland.jpg");
+     name = "what to do what to do...";
+     image(background, 0, 0, 1000, 600);
+     for (int i = 0; i < 4; i++){
+         currentRoom.addBlock(new EarthBlock(), i, 3);
+     }
+     for (int i = 7; i < 10; i++){
+         currentRoom.addBlock(new EarthBlock(), i, 2);
+     }
+     fillWithEmpty();
+   }
+   
+   public void setupRoom5(){
+     background = loadImage("backgrounds/castlefar.jpg");
      name = "what to do what to do...";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 6; i++){
-         if (i != 2 && i != 4 && i != 6){
+         if (i != 4 && i != 6){
          currentRoom.addBlock(new EarthBlock(), i, 3);
        }
      }
@@ -170,12 +179,25 @@ class Room{
      }
      fillWithEmpty();
    }
+   
+   public void setupRoom6(){
+     background = loadImage("backgrounds/insidecastle.jpeg");
+     name = "what to do what to do...";
+     image(background, 0, 0, 1000, 600);
+     for (int i = 0; i < 10; i++){
+         if (i != 3 && i != 4 && i != 5){
+         currentRoom.addBlock(new EarthBlock(), i, 3);
+       }
+     }
+
+     fillWithEmpty();
+   }
 
    
    public void drawRoomMap(){
      stroke(0);
      fill(255);
-     int x = width/5 * roomNumber;   //change this
+     int x = width/7 * roomNumber;   //change this
       if (roomNumber == 0){
          square(x, 300, 100);
          text("0", x, 300);
@@ -195,6 +217,14 @@ class Room{
       if (roomNumber == 4){
          square(x, 300, 100);
          text("4", x, 300);
+      }
+      if (roomNumber == 5){
+         square(x, 300, 100);
+         text("5", x, 300);
+      }
+      if (roomNumber == 6){
+         square(x, 300, 100);
+         text("6", x, 300);
       }
    }
 

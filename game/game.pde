@@ -49,13 +49,11 @@ void setup(){
   frameRate(60);
   size(1000, 650);
   map = new Map();
-  map.add(new Room(0));
-  map.add(new Room(1));
-  map.add(new Room(2));
-  map.add(new Room(3));
-  map.add(new Room(4));
   currentRoom = map.get(currentRoomNumber);
+<<<<<<< HEAD
   inventory = new Inventory();
+=======
+>>>>>>> origin/nelli
   player = new Player();
   if(currentRoomNumber == 0){
     inventory.setupInventory(new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new StairBlock(), null, null, null, null);
@@ -124,6 +122,7 @@ void mouseReleased(){
 
 
 void draw(){
+  println(MODE);
   if (MODE == WALK){ ////////////////////////////////////////////////////////////////////////
     drawSetting();
     Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
@@ -160,40 +159,49 @@ void draw(){
   
   else if (MODE == MAP){////////////////////////////////////////////////////////////////////////
     map.drawMap();
-    //println(map.get(0).getStatus());
     int x = width/map.size();  
     if (mouseY > 300 && mouseY < 400){
       if (mousePressed == true && mouseX > 0 && mouseX < 100){
         MODE = WALK;
         currentRoomNumber= 0;
-        setup();
-      }
-      
+        player = new Player();
+      }     
        else if (mousePressed == true && mouseX > x && mouseX < x + 100 && map.get(0).getStatus()){
         MODE = WALK;
         currentRoomNumber= 1;
-        setup();
+        player = new Player();
       }
        else if (mousePressed == true && mouseX > x * 2 && mouseX < x * 2 + 100 && map.get(1).getStatus()){
         MODE = WALK;
         currentRoomNumber= 2;
-        setup();
+        player = new Player();
       }
       else if (mousePressed == true && mouseX > x * 3 && mouseX < x * 3 + 100 && map.get(2).getStatus()){
         MODE = WALK;
         currentRoomNumber= 3;
-        setup();
+        player = new Player();
       }
       else if (mousePressed == true && mouseX > x * 4 && mouseX < x * 4 + 100 && map.get(3).getStatus()){
         MODE = WALK;
         currentRoomNumber= 4;
-        setup();
+        player = new Player();
+      }
+      else if (mousePressed == true && mouseX > x * 5 && mouseX < x * 5 + 100 && map.get(3).getStatus()){
+        MODE = WALK;
+        currentRoomNumber= 5;
+        player = new Player();
+      }
+      else if (mousePressed == true && mouseX > x * 6 && mouseX < x * 6 + 100 && map.get(3).getStatus()){
+        MODE = WALK;
+        currentRoomNumber= 6;
+        player = new Player();
       }
     }
   }
 }
 
 public void drawSetting(){
+  currentRoom = map.get(currentRoomNumber);
   currentRoom.drawRoom();
   player.drawPlayer();
   inventory.drawInventory();
