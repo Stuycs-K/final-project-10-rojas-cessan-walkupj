@@ -72,6 +72,11 @@ Levels now need to be unlocked in order, there are bugs with redoing levels thou
 
 Simplified setup, fixed all the setup calls in draw, and filled out the ReadMe file. Designed and implemented room 5 and 6.
 
+
+### 6/11
+
+Added music. Final touches and room-related debugging. 
+
 ## Jo
 
 ### 5/23
