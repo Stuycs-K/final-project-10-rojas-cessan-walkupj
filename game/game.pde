@@ -146,7 +146,7 @@ void draw() {
     String typeBelow = blockBelow.type();
     Block blockOn = currentRoom.getBlock((player.getX()-20)/100, (player.getY()+75)/100);
     String typeOn = blockOn.type();
-    if (player.getX() > 900) {
+    if (player.getX() > 900 && currentRoomNumber != 7) {
       MODE = MAP;
       currentRoom.changeStatus();
     }

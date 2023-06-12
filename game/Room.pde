@@ -205,7 +205,7 @@ class Room{
    
    public void setupRoom7(){
      fill(255);
-     background = loadImage("dance.jpeg");
+     background = loadImage("backgrounds/Dancing-the-Hustle.jpg");
      name = "Hurrah! You made it! Congrats! Yata!";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 10; i++){
