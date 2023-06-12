@@ -210,8 +210,12 @@ void draw(){
         currentRoomNumber= 5;
         respawn();
       }
-      else if (mousePressed == true && mouseX > x * 6 && mouseX < x * 6 + 100 && map.get(5).getStatus()){
+      else if (mousePressed == true && mouseX > x * 6 && mouseX < x * 6 + 100 && (map.get(5).getStatus()||hacks)){
         currentRoomNumber= 6;
+        respawn();
+      }
+      else if (mousePressed == true && mouseX > x * 7 && mouseX < x * 7 + 100 && (map.get(6).getStatus()||hacks)){
+        currentRoomNumber= 7;
         respawn();
       }
     }

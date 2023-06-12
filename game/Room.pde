@@ -64,7 +64,6 @@ class Room{
     return blockGrid[r][c];
   }
   public void drawRoom(){
-    fill(0);
     if (roomNumber == 0){
       setupRoom0();           
     }
@@ -86,12 +85,16 @@ class Room{
     else if (roomNumber == 6){
       setupRoom6();           
     }
+    else if (roomNumber == 7){
+      setupRoom7();           
+    }
     drawBlockGrid();
     
     textSize(55);
     text(getName(), 20, 50);
   }
   public void setupRoom0(){
+    fill(0);
     background = loadImage("backgrounds/sunny.jpg");
     name = "Tutorial";
      image(background, 0, 0, 1000, 600);
@@ -109,6 +112,7 @@ class Room{
    }
    
    public void setupRoom1(){
+     fill(0);
      background = loadImage("backgrounds/storm.jpg");
      name = "Ahhh there's a storm a-coming";
      image(background, 0, 0, 1000, 600);
@@ -121,10 +125,13 @@ class Room{
        }
      }
      fillWithEmpty();
+     text("hint! keep your blocks after you use them", 10, 70);
    }
    
    public void setupRoom2(){
-     background = loadImage("backgrounds/hell.jpg");
+     fill(255);
+     background = loadImage("backgrounds/hell.png");
+     fill(255);
      name = "POV you forgot to say bless you when \n you sneezed";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 10; i++){
@@ -139,6 +146,7 @@ class Room{
    }
    
    public void setupRoom3(){
+     fill(0);
      background = loadImage("backgrounds/bluesky.jpg");
      name = "climb!";
      image(background, 0, 0, 1000, 600);
@@ -152,6 +160,7 @@ class Room{
    }
    
    public void setupRoom4(){
+     fill(0);
      background = loadImage("backgrounds/ireland.jpg");
      name = "what to do what to do...";
      image(background, 0, 0, 1000, 600);
@@ -165,6 +174,7 @@ class Room{
    }
    
    public void setupRoom5(){
+     fill(0);
      background = loadImage("backgrounds/castlefar.jpg");
      name = "what to do what to do...";
      image(background, 0, 0, 1000, 600);
@@ -180,6 +190,7 @@ class Room{
    }
    
    public void setupRoom6(){
+     fill(255);
      background = loadImage("backgrounds/insidecastle.jpeg");
      name = "what to do what to do...";
      image(background, 0, 0, 1000, 600);
@@ -191,7 +202,18 @@ class Room{
 
      fillWithEmpty();
    }
+   
+   public void setupRoom7(){
+     fill(255);
+     background = loadImage("backgrounds/dance.jpeg");
+     name = "Hurrah! You made it! Congrats! Yata!";
+     image(background, 0, 0, 1000, 600);
+     for (int i = 0; i < 10; i++){
+         currentRoom.addBlock(new BridgeBlock(), i, 3);
+     }
 
+     fillWithEmpty();
+   }
    
    public void drawRoomMap(){
      stroke(0);
@@ -199,7 +221,7 @@ class Room{
      if (getStatus() == false){
        fill(255);
      }
-     int x = width/7 * roomNumber;   //change this
+     int x = width/8 * roomNumber;   //change this
       if (roomNumber == 0){
          square(x, 300, 100);
          text("0", x, 300);
@@ -227,6 +249,10 @@ class Room{
       if (roomNumber == 6){
          square(x, 300, 100);
          text("6", x, 300);
+      }
+      if (roomNumber == 7){
+         square(x, 300, 100);
+         text("7", x, 300);
       }
    }
 
