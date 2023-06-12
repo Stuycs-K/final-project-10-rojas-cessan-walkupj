@@ -5,18 +5,20 @@ private Room currentRoom;
 private Inventory inventory;
 private Player player; 
 private PImage deathImage;
-private int MODE = 0; 
+private int MODE = -1; 
 private int inventoryFromMouse;
 private int initMouseY;
 private int initMouseX;
 private int roomRFromMouse;
 private int roomCFromMouse;
 private int ogMode;
+private static final int START = -1;
 private static final int WALK = 0;
 private static final int MAP = 1;
 private static final int DEATH = 2;
 private boolean left = false;
 private boolean right = false;
+private boolean hacks = false;
 
 void keyPressed() {
   switch (keyCode){
@@ -53,11 +55,33 @@ void setup(){
   inventory = player.inventory;
   inventory.setupInventory(new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new BridgeBlock(), new StairBlock(), null, null, null, null);
   deathImage = loadImage("blockImages/youDied.jpg");
-  drawSetting();
+  background(0);
+  textSize(100);
+  text("Welcome to the game!", 10, 150);
+  textSize(60);
+  text("Click on an option", 250, 250);
+  fill (255);
+  rect(350, 300, 300, 100);
+  rect(350, 450, 300, 100);
+  fill (0);
+  textSize(40);
+  text("Story Mode", 380, 360);
+  text("Freeplay Mode", 370, 510);
 }
 
 void mousePressed(){
   ogMode = MODE;
+  if (MODE == START){
+    if (mouseX>350 && mouseX<650){
+      if (mouseY>300 && mouseY < 400){
+        MODE = WALK;
+      }
+      if (mouseY>450 && mouseY < 550){
+        hacks = true;
+        MODE = WALK;
+      }
+    }
+  }
   if (MODE == WALK){
     initMouseY = mouseY;
     initMouseX = mouseX;
@@ -99,7 +123,6 @@ void mouseReleased(){
 
 
 void draw(){
-  println(MODE);
   if (MODE == WALK){ ////////////////////////////////////////////////////////////////////////
     drawSetting();
     Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);

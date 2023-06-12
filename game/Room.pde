@@ -8,7 +8,6 @@ class Room{
   public Room(int roomNumber){
     blockGrid = new Block[10][10];
     this.roomNumber = roomNumber;
-    
   }
   
   public boolean getStatus(){ //tells u if room is done (true)or not (f)
