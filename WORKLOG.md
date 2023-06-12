@@ -132,3 +132,7 @@ fixed weird inventory issues! currently resets after each level
 ### 6/10
 
 Inventory does not reset after each level, instead once you use a block in one level it stays there and does not go back to inventory.
+
+### 6/11
+
+Fixed stair issue- stairs can be placed on empty space without dying
