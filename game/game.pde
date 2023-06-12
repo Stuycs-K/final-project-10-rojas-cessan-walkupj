@@ -1,6 +1,6 @@
 import java.util.*;
 import processing.sound.*;
-SoundFile file;
+SoundFile jazz, boom;
 private Map map;
 private int currentRoomNumber = 0;
 private Room currentRoom;
@@ -14,6 +14,7 @@ private int initMouseX;
 private int roomRFromMouse;
 private int roomCFromMouse;
 private int ogMode;
+private static final int SETTINGS = -2;
 private static final int START = -1;
 private static final int WALK = 0;
 private static final int MAP = 1;
@@ -70,11 +71,12 @@ void setup(){
   text("Play Normally", 380, 360);
   text("Play with Hacks", 370, 510);
   //this loads the file based on the file name
-  file = new SoundFile(this,"sound/Himiko_Kikuchi_Fluffy.mp3");
-  file.play();
+  jazz = new SoundFile(this,"sound/Himiko_Kikuchi_Fluffy.mp3");
+  boom = new SoundFile(this,"sound/vine-boom.mp3");
+  jazz.play();
   
   //this changes the volume level (number between 0 and 1)
-  file.amp(.5);
+  jazz.amp(.5);
 }
 
 void mousePressed(){
@@ -89,7 +91,9 @@ void mousePressed(){
         MODE = WALK;
       }
     }
+
   }
+
   if (MODE == WALK){
     initMouseY = mouseY;
     initMouseX = mouseX;
@@ -131,6 +135,13 @@ void mouseReleased(){
 
 
 void draw(){
+  if (MODE == SETTINGS){
+    background(255);
+    fill(0);
+    square(948, 2, 50);
+    
+  }
+  
   if (MODE == WALK){ ////////////////////////////////////////////////////////////////////////
     drawSetting();
     Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
