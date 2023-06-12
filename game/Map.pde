@@ -14,6 +14,7 @@ class Map{
      timeline.add(new Room(4));
      timeline.add(new Room(5));
      timeline.add(new Room(6));
+     timeline.add(new Room(7));
    }
    
    

@@ -1,4 +1,7 @@
 import java.util.*;
+import processing.sound.*;
+SoundFile jazz, boom, sadJazz;
+boolean music = false; 
 private Map map;
 private int currentRoomNumber = 0;
 private Room currentRoom;
@@ -6,18 +9,21 @@ private Player player;
 private Inventory inventory;
 private Block[] inv = new Block[10];
 private PImage deathImage;
-private int MODE = 0; 
+private int MODE = -1; 
 private int inventoryFromMouse;
 private int initMouseY;
 private int initMouseX;
 private int roomRFromMouse;
 private int roomCFromMouse;
 private int ogMode;
+private static final int SETTINGS = -2;
+private static final int START = -1;
 private static final int WALK = 0;
 private static final int MAP = 1;
 private static final int DEATH = 2;
 private boolean left = false;
 private boolean right = false;
+private boolean hacks = false;
 
 void keyPressed() {
   switch (keyCode){
@@ -71,11 +77,43 @@ void setup(){
    }
   }
   deathImage = loadImage("blockImages/youDied.jpg");
-  drawSetting();
+  background(0);
+  textSize(100);
+  text("Welcome to the game!", 10, 150);
+  textSize(60);
+  text("Click on an option", 250, 250);
+  fill (255);
+  rect(350, 300, 300, 100);
+  rect(350, 450, 300, 100);
+  fill (0);
+  textSize(40);
+  text("Play Normally", 380, 360);
+  text("Play with Hacks", 370, 510);
+  //this loads the file based on the file name
+  jazz = new SoundFile(this,"sound/Himiko_Kikuchi_Fluffy.mp3");
+  sadJazz = new SoundFile(this,"sound/Cowboy-Bebop-Farewell-Blues.mp3");
+  boom = new SoundFile(this,"sound/vine-boom.mp3");
+  jazz.play();
+  
+  //this changes the volume level (number between 0 and 1)
+  jazz.amp(.5);
 }
 
 void mousePressed(){
   ogMode = MODE;
+  if (MODE == START){
+    if (mouseX>350 && mouseX<650){
+      if (mouseY>300 && mouseY < 400){
+        MODE = WALK;
+      }
+      if (mouseY>450 && mouseY < 550){
+        hacks = true;
+        MODE = WALK;
+      }
+    }
+
+  }
+
   if (MODE == WALK){
     initMouseY = mouseY;
     initMouseX = mouseX;
@@ -119,7 +157,12 @@ void mouseReleased(){
 
 
 void draw(){
-  //println(MODE);
+  if (MODE == SETTINGS){
+    background(255);
+    fill(0);
+    square(948, 2, 50);
+    
+  }
   if (MODE == WALK){ ////////////////////////////////////////////////////////////////////////
     drawSetting();
     Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
@@ -143,6 +186,10 @@ void draw(){
       player.fall();
     }
     if(player.getY() >= 550){
+      boom.play();
+      jazz.stop();
+      music = true;
+      sadJazz.play();
       MODE = DEATH;
     }
   } 
@@ -159,44 +206,50 @@ void draw(){
     int x = width/map.size();  
     if (mouseY > 300 && mouseY < 400){
       if (mousePressed == true && mouseX > 0 && mouseX < 100){
-        MODE = WALK;
         currentRoomNumber= 0;
-        player = new Player();
+        respawn();
       }     
-       else if (mousePressed == true && mouseX > x && mouseX < x + 100 && map.get(0).getStatus()){
-        MODE = WALK;
+       else if (mousePressed == true && mouseX > x && mouseX < x + 100 && (map.get(0).getStatus()||hacks)){
         currentRoomNumber= 1;
-        player = new Player();
+        respawn();
       }
-       else if (mousePressed == true && mouseX > x * 2 && mouseX < x * 2 + 100 && map.get(1).getStatus()){
-        MODE = WALK;
+       else if (mousePressed == true && mouseX > x * 2 && mouseX < x * 2 + 100 && (map.get(1).getStatus()||hacks)){
         currentRoomNumber= 2;
-        player = new Player();
+        respawn();
       }
-      else if (mousePressed == true && mouseX > x * 3 && mouseX < x * 3 + 100 && map.get(2).getStatus()){
-        MODE = WALK;
+      else if (mousePressed == true && mouseX > x * 3 && mouseX < x * 3 + 100 && (map.get(2).getStatus()||hacks)){
         currentRoomNumber= 3;
-        player = new Player();
+        respawn();
       }
-      else if (mousePressed == true && mouseX > x * 4 && mouseX < x * 4 + 100 && map.get(3).getStatus()){
-        MODE = WALK;
+      else if (mousePressed == true && mouseX > x * 4 && mouseX < x * 4 + 100 && (map.get(3).getStatus()||hacks)){
         currentRoomNumber= 4;
-        player = new Player();
+        respawn();
       }
-      else if (mousePressed == true && mouseX > x * 5 && mouseX < x * 5 + 100 && map.get(3).getStatus()){
-        MODE = WALK;
+      else if (mousePressed == true && mouseX > x * 5 && mouseX < x * 5 + 100 && (map.get(4).getStatus()||hacks)){
         currentRoomNumber= 5;
-        player = new Player();
+        respawn();
       }
-      else if (mousePressed == true && mouseX > x * 6 && mouseX < x * 6 + 100 && map.get(3).getStatus()){
-        MODE = WALK;
+      else if (mousePressed == true && mouseX > x * 6 && mouseX < x * 6 + 100 && (map.get(5).getStatus()||hacks)){
         currentRoomNumber= 6;
-        player = new Player();
+        respawn();
+      }
+      else if (mousePressed == true && mouseX > x * 7 && mouseX < x * 7 + 100 && (map.get(6).getStatus()||hacks)){
+        currentRoomNumber= 7;
+        respawn();
       }
     }
   }
 }
 
+public void respawn(){
+  player = new Player();
+  MODE = WALK;
+  sadJazz.stop();
+  if (music){
+    jazz.play();
+    music = false;
+  }
+}
 public void drawSetting(){
   currentRoom = map.get(currentRoomNumber);
   currentRoom.drawRoom();
