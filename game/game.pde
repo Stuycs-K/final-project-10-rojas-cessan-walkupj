@@ -124,7 +124,7 @@ void draw(){
     drawSetting();
     Block blockBelow = currentRoom.getBlock((player.getX())/100, (player.getY() + 150)/100);
     String typeBelow = blockBelow.type();
-    Block blockOn = currentRoom.getBlock((player.getX()-20)/100, (player.getY()+75)/100);
+    Block blockOn = currentRoom.getBlock((player.getX())/100, (player.getY()+75)/100);
     String typeOn = blockOn.type();
     if (player.getX() > 900){
      MODE = MAP;
@@ -139,7 +139,7 @@ void draw(){
     if(!typeOn.equals("Stair")){
       player.onStairs("false");
     }
-    if(typeBelow.equals("Empty") || typeBelow.equals("Water")){ //death thing
+    if((typeBelow.equals("Empty") || typeBelow.equals("Water")) && !typeOn.equals("Stair")){ //death thing
       player.fall();
     }
     if(player.getY() >= 550){
