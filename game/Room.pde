@@ -1,7 +1,7 @@
 class Room{
   private String name;
   private Block[][] blockGrid;
-  private PImage background = loadImage("backgrounds/fortniteBackground.jpeg");
+  private PImage background;
   private int roomNumber;
   private boolean done = false;
 
@@ -130,7 +130,7 @@ class Room{
    
    public void setupRoom2(){
      fill(255);
-     background = loadImage("backgrounds/hell.png");
+     background = loadImage("backgrounds/hell.jpeg");
      fill(255);
      name = "POV you forgot to say bless you when \n you sneezed";
      image(background, 0, 0, 1000, 600);
@@ -162,7 +162,7 @@ class Room{
    public void setupRoom4(){
      fill(0);
      background = loadImage("backgrounds/ireland.jpg");
-     name = "what to do what to do...";
+     name = "WHERE ARE WE???";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 4; i++){
          currentRoom.addBlock(new EarthBlock(), i, 3);
@@ -176,7 +176,7 @@ class Room{
    public void setupRoom5(){
      fill(0);
      background = loadImage("backgrounds/castlefar.jpg");
-     name = "what to do what to do...";
+     name = "man that is a cool castle, let's check it out!";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 6; i++){
          if (i != 4 && i != 6){
@@ -192,7 +192,7 @@ class Room{
    public void setupRoom6(){
      fill(255);
      background = loadImage("backgrounds/insidecastle.jpeg");
-     name = "what to do what to do...";
+     name = "oh man this is so awkward, just passing by";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 10; i++){
          if (i != 3 && i != 4 && i != 5){
@@ -205,13 +205,13 @@ class Room{
    
    public void setupRoom7(){
      fill(255);
-     background = loadImage("backgrounds/dance.jpeg");
+     background = loadImage("dance.jpeg");
      name = "Hurrah! You made it! Congrats! Yata!";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 10; i++){
          currentRoom.addBlock(new BridgeBlock(), i, 3);
      }
-
+     text("You're done now. Thanks for playing!!! :)", 10, 70);
      fillWithEmpty();
    }
    
