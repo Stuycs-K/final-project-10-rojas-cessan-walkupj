@@ -8,4 +8,4 @@ Our game is a puzzle solving game where the user must help their character get t
 ## Instructions
 Press 'A' and 'D' to move. Drag and drop blocks from your inventory. Press SHIFT to respawn. Click on the level you want to do. 
 
-NOTE: The game does have music, please turn up your volume (not too high, there is a loud part)! You may need to install the Sound Library (sketch> import library> manage libraries> search for sound > install) and allow microphone access. Due to the music, it initially takes a moment for it to load. 
+NOTE: The game does have music, please turn up your volume (not too high, there is a loud part)! You may need to install the Sound Library (sketch> import library> manage libraries> search for sound > install) and allow microphone access. Due to the music, it initially takes around 15 seconds for it to load. 
