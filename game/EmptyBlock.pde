@@ -1,5 +1,4 @@
 class EmptyBlock extends Block{
-  private boolean interactable = true;
   private int x, y;
   //private PImage image = loadImage("blockImages/bridgeBlock.jpg");
   public EmptyBlock(){

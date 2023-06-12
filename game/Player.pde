@@ -1,5 +1,4 @@
 class Player{
-  private String name;
   private PImage leftImage = loadImage("blockImages/playerLeft.png");
   private PImage rightImage = loadImage("blockImages/playerRight.png");
   private int pheight = 150;
@@ -9,7 +8,6 @@ class Player{
   public Inventory inventory;
   //150 tall, 100 across
   public Player(){
-     name = "Sonny";
      location = new int[]{0,160};
      inventory = new Inventory();
   }

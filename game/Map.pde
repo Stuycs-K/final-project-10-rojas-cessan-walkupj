@@ -1,8 +1,5 @@
 class Map{
   private ArrayList<Room> timeline;
-  public int value0 = 255;
-  public int value1 = 255;
-  public int value2 = 255;
   //private String name; opt if multiple maps
 
    public Map(){

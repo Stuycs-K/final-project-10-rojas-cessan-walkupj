@@ -1,5 +1,4 @@
 class WaterBlock extends Block{
-  private boolean interactable = false;
     private int x, y;
   private PImage image = loadImage("blockImages/waterBlock.png");
   public WaterBlock(){

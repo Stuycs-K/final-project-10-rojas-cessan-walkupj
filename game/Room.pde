@@ -108,11 +108,11 @@ class Room{
      }
      fillWithEmpty();
      //currentRoom.addBlock(new MonsterBlock(), 3, 2);
-     text("Try pressing the WASD keys, dragging and dropping items, and be cautious!", 10, 70);
+     text("Try pressing the A and D keys, dragging and dropping items, and be cautious!", 10, 70);
    }
    
    public void setupRoom1(){
-     fill(0);
+     fill(255);
      background = loadImage("backgrounds/storm.jpg");
      name = "Ahhh there's a storm a-coming";
      image(background, 0, 0, 1000, 600);
@@ -176,7 +176,7 @@ class Room{
    public void setupRoom5(){
      fill(0);
      background = loadImage("backgrounds/castlefar.jpg");
-     name = "man that is a cool castle, let's check it out!";
+     name = "wow that is a cool castle, let's check it out!";
      image(background, 0, 0, 1000, 600);
      for (int i = 0; i < 6; i++){
          if (i != 4 && i != 6){
