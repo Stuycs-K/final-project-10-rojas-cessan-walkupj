@@ -1,4 +1,6 @@
 import java.util.*;
+import processing.sound.*;
+SoundFile file;
 private Map map;
 private int currentRoomNumber = 0;
 private Room currentRoom;
@@ -65,8 +67,14 @@ void setup(){
   rect(350, 450, 300, 100);
   fill (0);
   textSize(40);
-  text("Story Mode", 380, 360);
-  text("Freeplay Mode", 370, 510);
+  text("Play Normally", 380, 360);
+  text("Play with Hacks", 370, 510);
+  //this loads the file based on the file name
+  file = new SoundFile(this,"sound/Himiko_Kikuchi_Fluffy.mp3");
+  file.play();
+  
+  //this changes the volume level (number between 0 and 1)
+  file.amp(.5);
 }
 
 void mousePressed(){
@@ -166,27 +174,27 @@ void draw(){
         currentRoomNumber= 0;
         player = new Player();
       }     
-       else if (mousePressed == true && mouseX > x && mouseX < x + 100 && map.get(0).getStatus()){
+       else if (mousePressed == true && mouseX > x && mouseX < x + 100 && (map.get(0).getStatus()||hacks)){
         MODE = WALK;
         currentRoomNumber= 1;
         player = new Player();
       }
-       else if (mousePressed == true && mouseX > x * 2 && mouseX < x * 2 + 100 && map.get(1).getStatus()){
+       else if (mousePressed == true && mouseX > x * 2 && mouseX < x * 2 + 100 && (map.get(0).getStatus()||hacks)){
         MODE = WALK;
         currentRoomNumber= 2;
         player = new Player();
       }
-      else if (mousePressed == true && mouseX > x * 3 && mouseX < x * 3 + 100 && map.get(2).getStatus()){
+      else if (mousePressed == true && mouseX > x * 3 && mouseX < x * 3 + 100 && (map.get(0).getStatus()||hacks)){
         MODE = WALK;
         currentRoomNumber= 3;
         player = new Player();
       }
-      else if (mousePressed == true && mouseX > x * 4 && mouseX < x * 4 + 100 && map.get(3).getStatus()){
+      else if (mousePressed == true && mouseX > x * 4 && mouseX < x * 4 + 100 && (map.get(0).getStatus()||hacks)){
         MODE = WALK;
         currentRoomNumber= 4;
         player = new Player();
       }
-      else if (mousePressed == true && mouseX > x * 5 && mouseX < x * 5 + 100 && map.get(3).getStatus()){
+      else if (mousePressed == true && mouseX > x * 5 && mouseX < x * 5 + 100 && (map.get(0).getStatus()||hacks)){
         MODE = WALK;
         currentRoomNumber= 5;
         player = new Player();
