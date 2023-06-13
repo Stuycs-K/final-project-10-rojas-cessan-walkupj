@@ -13,6 +13,7 @@
 - Background Music and sound effects
 ### II. Broken Features/Bugs
 - You can add new blocks from preset blocks, though you aren't supposed to
+- Due to the the music and sound effects, the game can take a while to load depending on WiFi connection
 ### III. Content resources you used that you found helpful
 - Minecraft
 - FRAMED Collection
