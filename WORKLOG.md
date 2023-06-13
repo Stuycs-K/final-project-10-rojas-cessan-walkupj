@@ -1,21 +1,21 @@
 # Dev Log
 ### I. Working Features
--Player can walk on blocks and die when they touch the ground
--Player faces direction they are walking in
--Inventory that remains constant throughout game
--Drag and drop blocks from and to inventory
--Your blocks can disappear permanently if put onto prexisting blocks, so you have to be careful 
--Each room has a message
--Different type of blocks with different characteristics (bridge, stair, monster, water, earth, empty)
--Unique rooms 
--Room selection system
--Two modes: normal one in chronological order and hacks one that unlocks all levels
--Background Music and sound effects
+- Player can walk on blocks and die when they touch the ground
+- Player faces direction they are walking in
+- Inventory that remains constant throughout game
+- Drag and drop blocks from and to inventory
+- Your blocks can disappear permanently if put onto prexisting blocks, so you have to be careful 
+- Each room has a message
+- Different type of blocks with different characteristics (bridge, stair, monster, water, earth, empty)
+- Unique rooms 
+- Room selection system
+- Two modes: normal one in chronological order and hacks one that unlocks all levels
+- Background Music and sound effects
 ### II. Broken Features/Bugs
--You can add new blocks from preset blocks, though you aren't supposed to
+- You can add new blocks from preset blocks, though you aren't supposed to
 ### III. Content resources you used that you found helpful
--Minecraft
--FRAMED Collection
+- Minecraft
+- FRAMED Collection
 # Work Log
 
 ## Nelli
